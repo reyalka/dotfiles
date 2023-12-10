@@ -1,0 +1,5 @@
+[container]
+disabled = true
+
+[directory]
+truncation_length = 1000
