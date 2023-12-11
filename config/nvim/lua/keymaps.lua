@@ -20,21 +20,6 @@ set("n", "<space>tb", "<cmd>Telescope file_browser<cr>")
 set("n", "<space>tf", "<cmd>Telescope frecency<cr>")
 set("n", "<space>te", "<cmd>Telescope emoji<cr>")
 
--- barbar
--- set("n", "<Space><Tab>", "<cmd>BufferNext<CR>")
--- set("n", "<Space>q", "<cmd>BufferPrev<CR>")
--- set("n", "<Space>w", "<cmd>BufferClose<CR>")
--- set("n", "<Space>qw", "<cmd>BufferClose!<CR>")
--- set("n", "<Space>1", "<cmd>BufferGoto 1<CR>")
--- set("n", "<Space>2", "<cmd>BufferGoto 2<CR>")
--- set("n", "<Space>3", "<cmd>BufferGoto 3<CR>")
--- set("n", "<Space>4", "<cmd>BufferGoto 4<CR>")
--- set("n", "<Space>5", "<cmd>BufferGoto 5<CR>")
--- set("n", "<Space>6", "<cmd>BufferGoto 6<CR>")
--- set("n", "<Space>7", "<cmd>BufferGoto 7<CR>")
--- set("n", "<Space>8", "<cmd>BufferGoto 8<CR>")
--- set("n", "<Space>9", "<cmd>BufferLast<CR>")
-
 -- bufferline
 set('n', '<Space>1', '<Cmd>BufferLineGoToBuffer 1<CR>')
 set('n', '<Space>2', '<Cmd>BufferLineGoToBuffer 2<CR>')
@@ -65,6 +50,3 @@ set("n", "<Space>l", "<cmd>Lazy<CR>")
 --formatter
 set("n", "<Space>f", "<cmd>FormatWrite<CR>")
 
--- dial.nvim
-set("n", "<C-a>", "<Plug>(dial-increment)")
-set("n", "<C-x>", "<Plug>(dial-decrement)")
