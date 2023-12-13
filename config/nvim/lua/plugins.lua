@@ -163,7 +163,7 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(_)
           local set = vim.keymap.set
-          set("n", "<Space>gh", "<cmd>Lspsaga hover_doc<CR>")
+          set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
           set("n", "<Space>gf", "<cmd>lua vim.lsp.buf.format()<CR>")
           set("n", "<Space>gr", "<cmd>lua vim.lsp.buf.references()<CR>")
           set("n", "<Space>gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
@@ -220,8 +220,11 @@ return {
         filetype = {
           html = { getFormatter("html", "prettier") },
           css = { getFormatter("css", "prettier") },
+          -- sccs has not supported yet
           -- scss = { getFormatter("scss", "prettier") },
           lua = { getFormatter("lua", "stylua") },
+          sh = { getFormatter("sh", "shfmt") },
+          rust = { getFormatter("rust", "rustfmt") },
           json = { biome },
           javascript = { biome },
           javascriptreact = { biome },
@@ -432,12 +435,15 @@ return {
   },
   {
     "stevearc/oil.nvim",
-    opts = {},
     cmd = {
       "Oil",
     },
     config = function()
-      require("oil").setup()
+      require("oil").setup({
+        view_options = {
+          show_hidden = true,
+        }
+      })
     end,
   },
 }
