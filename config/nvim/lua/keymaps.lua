@@ -50,3 +50,6 @@ set("n", "<Space>l", "<cmd>Lazy<CR>")
 --formatter
 set("n", "<Space>f", "<cmd>FormatWrite<CR>")
 
+--jaq-nvim
+set("n", "<Space>j", "<cmd>Jaq<CR>")
+

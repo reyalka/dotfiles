@@ -446,4 +446,30 @@ return {
       })
     end,
   },
+  {
+    "is0n/jaq-nvim",
+    cmd = {
+      "Jaq",
+    },
+    config = function ()
+      require("jaq-nvim").setup({
+        cmds = {
+          internal = {
+            lua = "luafile %",
+            vim = "source %",
+          },
+          external = {
+            python = "python3 %",
+            rust = "cargo run %",
+            sh = "sh %",
+          }
+        },
+        ui = {
+          float = {
+            border = "rounded",
+          }
+        }
+      })
+    end,
+  }
 }
