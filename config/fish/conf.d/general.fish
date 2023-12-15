@@ -5,3 +5,7 @@ starship init fish | source
 fish_add_path $HOME/.cargo/bin
 fish_add_path /usr/local/go/bin 
 fish_add_path $HOME/.deno/bin
+fish_add_path /usr/local/zig
+
+# global variables
+set -Ux EDITOR /usr/local/bin/nvim
