@@ -21,15 +21,15 @@ set("n", "<space>tf", "<cmd>Telescope frecency<cr>")
 set("n", "<space>te", "<cmd>Telescope emoji<cr>")
 
 -- bufferline
-set('n', '<Space>1', '<Cmd>BufferLineGoToBuffer 1<CR>')
-set('n', '<Space>2', '<Cmd>BufferLineGoToBuffer 2<CR>')
-set('n', '<Space>3', '<Cmd>BufferLineGoToBuffer 3<CR>')
-set('n', '<Space>4', '<Cmd>BufferLineGoToBuffer 4<CR>')
-set('n', '<Space>5', '<Cmd>BufferLineGoToBuffer 5<CR>')
-set('n', '<Space>6', '<Cmd>BufferLineGoToBuffer 6<CR>')
-set('n', '<Space>7', '<Cmd>BufferLineGoToBuffer 7<CR>')
-set('n', '<Space>8', '<Cmd>BufferLineGoToBuffer 8<CR>')
-set('n', '<Space>9', '<Cmd>BufferLineGoToBuffer 9<CR>')
+set("n", "<Space>1", "<Cmd>BufferLineGoToBuffer 1<CR>")
+set("n", "<Space>2", "<Cmd>BufferLineGoToBuffer 2<CR>")
+set("n", "<Space>3", "<Cmd>BufferLineGoToBuffer 3<CR>")
+set("n", "<Space>4", "<Cmd>BufferLineGoToBuffer 4<CR>")
+set("n", "<Space>5", "<Cmd>BufferLineGoToBuffer 5<CR>")
+set("n", "<Space>6", "<Cmd>BufferLineGoToBuffer 6<CR>")
+set("n", "<Space>7", "<Cmd>BufferLineGoToBuffer 7<CR>")
+set("n", "<Space>8", "<Cmd>BufferLineGoToBuffer 8<CR>")
+set("n", "<Space>9", "<Cmd>BufferLineGoToBuffer 9<CR>")
 set("n", "<Space>w", "<Cmd>bd<CR>")
 
 -- WhichKey
@@ -52,4 +52,3 @@ set("n", "<Space>f", "<cmd>FormatWrite<CR>")
 
 --jaq-nvim
 set("n", "<Space>j", "<cmd>Jaq<CR>")
-

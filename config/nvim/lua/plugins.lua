@@ -15,9 +15,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[
-        colorscheme everforest
-      ]])
+      vim.cmd([[ colorscheme everforest ]])
     end,
   },
   {
@@ -442,7 +440,7 @@ return {
       require("oil").setup({
         view_options = {
           show_hidden = true,
-        }
+        },
       })
     end,
   },
@@ -451,7 +449,7 @@ return {
     cmd = {
       "Jaq",
     },
-    config = function ()
+    config = function()
       require("jaq-nvim").setup({
         cmds = {
           internal = {
@@ -462,14 +460,14 @@ return {
             python = "python3 %",
             rust = "cargo run %",
             sh = "sh %",
-          }
+          },
         },
         ui = {
           float = {
             border = "rounded",
-          }
-        }
+          },
+        },
       })
     end,
-  }
+  },
 }
