@@ -21,34 +21,35 @@ set("n", "<space>tf", "<cmd>Telescope frecency<cr>")
 set("n", "<space>te", "<cmd>Telescope emoji<cr>")
 
 -- bufferline
-set("n", "<Space>1", "<Cmd>BufferLineGoToBuffer 1<CR>")
-set("n", "<Space>2", "<Cmd>BufferLineGoToBuffer 2<CR>")
-set("n", "<Space>3", "<Cmd>BufferLineGoToBuffer 3<CR>")
-set("n", "<Space>4", "<Cmd>BufferLineGoToBuffer 4<CR>")
-set("n", "<Space>5", "<Cmd>BufferLineGoToBuffer 5<CR>")
-set("n", "<Space>6", "<Cmd>BufferLineGoToBuffer 6<CR>")
-set("n", "<Space>7", "<Cmd>BufferLineGoToBuffer 7<CR>")
-set("n", "<Space>8", "<Cmd>BufferLineGoToBuffer 8<CR>")
-set("n", "<Space>9", "<Cmd>BufferLineGoToBuffer 9<CR>")
-set("n", "<Space>w", "<Cmd>bd<CR>")
+set("n", "<Space>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
+set("n", "<Space>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })
+set("n", "<Space>3", "<Cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" })
+set("n", "<Space>4", "<Cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" })
+set("n", "<Space>5", "<Cmd>BufferLineGoToBuffer 5<CR>", { desc = "Go to buffer 5" })
+set("n", "<Space>6", "<Cmd>BufferLineGoToBuffer 6<CR>", { desc = "Go to buffer 6" })
+set("n", "<Space>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go to buffer 7" })
+set("n", "<Space>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { desc = "Go to buffer 8" })
+set("n", "<Space>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" })
+set("n", "<Space>s", "<Cmd>BufferLineSortByDirectory<CR>", { desc = "Sort buffers by directory" })
+set("n", "<Space>w", "<Cmd>bd<CR>", { desc = "Close buffer" })
 
 -- WhichKey
 set("n", "<Space>?", "<cmd>WhichKey<CR>")
 
 -- Aerial
-set("n", "<Space>a", "<cmd>AerialToggle!<CR>")
+set("n", "<Space>a", "<cmd>AerialToggle!<CR>", { desc = "Show index" })
 
 -- NeoTree
-set("n", "<Space>nt", "<cmd>Neotree<CR>")
+set("n", "<Space>nt", "<cmd>Neotree<CR>", { desc = "Open neotree" })
 
 -- Oil
-set("n", "<Space>o", "<cmd>Oil<CR>")
+set("n", "<Space>o", "<cmd>lua require('oil').open_float()<CR>", { desc = "Open oil in float window" })
 
 -- Lazy
 set("n", "<Space>l", "<cmd>Lazy<CR>")
 
 --formatter
-set("n", "<Space>f", "<cmd>FormatWrite<CR>")
+set("n", "<Space>f", "<cmd>FormatWrite<CR>", { desc = "Format and save file" })
 
 --jaq-nvim
 set("n", "<Space>j", "<cmd>Jaq<CR>")
