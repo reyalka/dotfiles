@@ -340,10 +340,10 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
-      { "nvim-telescope/telescope-file-browser.nvim", event = "VeryLazy" },
-      { "nvim-telescope/telescope-frecency.nvim", event = "VeryLazy" },
-      { "xiyaowong/telescope-emoji.nvim", event = "VeryLazy" },
-      { "sankantsu/telescope-zenn.nvim", event = "VeryLazy" },
+      { "nvim-telescope/telescope-file-browser.nvim" },
+      { "nvim-telescope/telescope-frecency.nvim" },
+      { "xiyaowong/telescope-emoji.nvim" },
+      { "sankantsu/telescope-zenn.nvim" },
     },
     cmd = "Telescope",
     config = function()
@@ -353,7 +353,6 @@ return {
       telescope.load_extension("frecency")
       telescope.load_extension("emoji")
       telescope.load_extension("zenn")
-      -- to avoid error about "not found keymap"
       local set = vim.keymap.set
       set("n", "<esc>", "<cmd>Telescope close<cr>")
     end,
@@ -363,6 +362,13 @@ return {
     event = { "BufRead", "BufNewFile" },
     config = function()
       require("bufferline").setup()
+    end,
+  },
+  {
+    "yorickpeterse/nvim-window",
+    event = { "BufRead", "BufNewFile" },
+    config = function()
+      require("nvim-window").setup({})
     end,
   },
   {
@@ -432,9 +438,6 @@ return {
     "thinca/vim-scouter",
     cmd = {
       "Scouter",
-      "ScouterClear",
-      "ScouterToggle",
-      "ScouterToggleClear",
     },
   },
   {
@@ -480,4 +483,3 @@ return {
     end,
   },
 }
-

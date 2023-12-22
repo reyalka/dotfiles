@@ -2,14 +2,14 @@ local set = vim.keymap.set
 
 set("i", "jk", "<esc>")
 set("i", "ｊｋ", "<esc>")
-set({ "n", "i", "v" }, "<c-s>", "<cmd>w<cr>")
+set({ "n", "i", "v" }, "<c-s>", "<cmd>w<cr>", { desc = "Save file" })
 -- set("n", "J", "10j")
 -- set("n", "K", "10k")
 set("n", "<Space>", "<NOP>")
 
 -- Copilot
 set("n", "<space>e", "<cmd>Copilot enable<cr>")
-set("n", "<space>cd", "<cmd>Copilot disable<cr>")
+set("n", "<space>d", "<cmd>Copilot disable<cr>")
 set("n", "<space>cs", "<cmd>Copilot status<cr>")
 
 -- telescope keymap
@@ -53,3 +53,6 @@ set("n", "<Space>f", "<cmd>FormatWrite<CR>", { desc = "Format and save file" })
 
 --jaq-nvim
 set("n", "<Space>j", "<cmd>Jaq<CR>")
+
+-- nvim-window
+set("n", "<Space>p", "<cmd>lua require('nvim-window').pick()<CR>", { desc = "Pick window" })
