@@ -20,6 +20,9 @@ set("n", "<space>tb", "<cmd>Telescope file_browser<cr>")
 set("n", "<space>tf", "<cmd>Telescope frecency<cr>")
 set("n", "<space>te", "<cmd>Telescope emoji<cr>")
 
+-- translate
+set("x", "<space>tr", "<cmd>Translate ja<CR>")
+
 -- bufferline
 set("n", "<Space>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
 set("n", "<Space>2", "<Cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" })

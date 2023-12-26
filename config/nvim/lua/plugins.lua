@@ -185,7 +185,7 @@ return {
       vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
         virtual_text = {
           format = function(diagnostic)
-            return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+            return string.format("%s [%s: %s]", diagnostic.message, diagnostic.source, diagnostic.code)
           end,
           update_in_insert = true,
         },
@@ -200,7 +200,6 @@ return {
       "FormatWrite",
     },
     config = function()
-      local formatter = require("formatter")
       local biome = function()
         local util = require("formatter.util")
         return {
@@ -407,6 +406,24 @@ return {
     end,
   },
   {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false, -- add a border to hover docs and signature help
+      },
+      lsp = { progress = { enabled = false }}
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+  {
     "stevearc/aerial.nvim",
     opts = {},
     cmd = { "Aerial", "AerialOpenAllBuffers", "AerialCloseAllBuffers", "AerialToggle" },
@@ -455,6 +472,10 @@ return {
         },
       })
     end,
+  },
+  {
+    "uga-rosa/translate.nvim",
+    cmd = "Translate",
   },
   {
     "is0n/jaq-nvim",
