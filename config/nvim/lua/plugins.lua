@@ -19,11 +19,12 @@ return {
     end,
   },
   {
-    "goolord/alpha-nvim",
-    event = "VimEnter",
-    config = function()
-      require("alpha").setup(require("alpha.themes.dashboard").opts)
-    end,
+    "echasnovski/mini.starter",
+    version = "*",
+    lazy = false,
+    config = function ()
+      require('mini.starter').setup()
+    end
   },
   {
     "vim-jp/vimdoc-ja",
@@ -416,7 +417,7 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
-      lsp = { progress = { enabled = false }}
+      lsp = { progress = { enabled = false } },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
