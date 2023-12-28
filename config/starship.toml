@@ -1,5 +1,8 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 [container]
 disabled = true
+
 
 [directory]
 truncation_length = 1000
