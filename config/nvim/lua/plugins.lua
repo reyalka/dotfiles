@@ -274,12 +274,14 @@ return {
           { name = "skkeleton" },
         }),
         cmp.setup.cmdline(":", {
+          mapping = cmp.mapping.preset.cmdline(),
           sources = {
             { name = "cmdline" },
             { name = "path" },
           },
         }),
         cmp.setup.cmdline({ "/", "?" }, {
+          mapping = cmp.mapping.preset.cmdline(),
           sources = {
             { name = "path" },
             { name = "buffer" },
@@ -389,12 +391,18 @@ return {
     dependencies = {
       "vim-denops/denops.vim",
     },
+    keys = {
+      {
+        "<C-l>",
+        "<Plug>(skkeleton-toggle)",
+        mode = { "i", "c" },
+        desc = "Enable skkeleton",
+      },
+    },
     event = "VeryLazy",
     config = function()
       vim.cmd([[
         call skkeleton#config({ 'globalJisyo': '~/.skk/SKK-JISYO.L' })
-        imap <C-l> <Plug>(skkeleton-enable)
-        cmap <C-l> <Plug>(skkeleton-enable)
       ]])
     end,
   },
