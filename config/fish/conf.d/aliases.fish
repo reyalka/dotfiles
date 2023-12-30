@@ -30,6 +30,7 @@ abbr nvim-startuptime "vim-startuptime --vimpath nvim"
 abbr gt "gnome-terminal"
 abbr mt "mate-terminal"
 abbr nvimtutor "nvim /tmp/vimtutor.txt"
+abbr lg "lazygit"
 
 function rmcd
     set current (pwd)
