@@ -22,9 +22,9 @@ return {
     "echasnovski/mini.starter",
     version = "*",
     lazy = false,
-    config = function ()
-      require('mini.starter').setup()
-    end
+    config = function()
+      require("mini.starter").setup()
+    end,
   },
   {
     "vim-jp/vimdoc-ja",
@@ -348,13 +348,19 @@ return {
     cmd = "Telescope",
     config = function()
       local telescope = require("telescope")
-      telescope.setup({})
+      local actions = require("telescope.actions")
+      telescope.setup({
+        defaults = {
+          mappings = {
+            n = { ["q"] = actions.close },
+            i = { ["<esc>"] = actions.close },
+          },
+        },
+      })
       telescope.load_extension("file_browser")
       telescope.load_extension("frecency")
       telescope.load_extension("emoji")
       telescope.load_extension("zenn")
-      local set = vim.keymap.set
-      set("n", "<esc>", "<cmd>Telescope close<cr>")
     end,
   },
   {
@@ -477,6 +483,8 @@ return {
   {
     "uga-rosa/translate.nvim",
     cmd = "Translate",
+    opts = {
+      parse = {
   },
   {
     "is0n/jaq-nvim",
