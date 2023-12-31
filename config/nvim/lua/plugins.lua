@@ -509,7 +509,8 @@ return {
           external = {
             python = "python3 %",
             rust = "cargo run %",
-            sh = "sh %",
+            sh = " bash %",
+            fish = "fish %",
           },
         },
         ui = {
