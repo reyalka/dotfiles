@@ -1,4 +1,5 @@
-set -x alias_path "$HOME/.config/fish/conf.d/aliases.fish"
+set -x alias_path "$HOME/dotfiles/fish/conf.d/aliases.fish"
+
 abbr pip "python3 -m pip"
 abbr src "source"
 abbr cl "clear"
@@ -31,6 +32,8 @@ abbr gt "gnome-terminal"
 abbr mt "mate-terminal"
 abbr nvimtutor "nvim /tmp/vimtutor.txt"
 abbr lg "lazygit"
+
+alias .. "_bd"
 
 function rmcd
     set current (pwd)
@@ -68,6 +71,4 @@ function _bd
         cd ..
     end
 end
-
-alias .. "_bd"
 
