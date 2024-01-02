@@ -4,6 +4,8 @@ return {
     dependencies = {
       {
         "junegunn/seoul256.vim",
+        "catppuccin/nvim",
+        "cocopon/iceberg.vim",
       },
     },
     cmd = {
@@ -15,7 +17,10 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[ colorscheme everforest ]])
+      vim.cmd([[
+        colorscheme everforest
+        command! LoadColorSheme <cmd>lua vim.notify("ColorSchemes were loaded")<CR>
+      ]])
     end,
   },
   {
@@ -423,20 +428,27 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
     opts = {
       presets = {
-        bottom_search = true, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
+        bottom_search = false, -- use a classic bottom cmdline for search
+        command_palette = false, -- position the cmdline and popupmenu together
+        long_message_to_split = false, -- long messages will be sent to a split
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
       lsp = { progress = { enabled = false } },
     },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
+  },
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    opts = {
+      render = "compact",
+      stages = "fade",
+    }
   },
   {
     "stevearc/aerial.nvim",
@@ -491,8 +503,14 @@ return {
   {
     "uga-rosa/translate.nvim",
     cmd = "Translate",
-    opts = {
-      parse = {
+    opts = {},
+  },
+  {
+    "simeji/winresizer",
+    keys = {
+      "<C-e>",
+      mode = "n",
+    },
   },
   {
     "is0n/jaq-nvim",
