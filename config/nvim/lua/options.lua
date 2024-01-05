@@ -7,8 +7,7 @@ local opts = {
   ambiwidth = "single",
   signcolumn = "yes",
   history = 100,
-  -- line = true,
-  -- listchars = { tab = '>>', trail = '-', nbsp = '+' },
+  termguicolors = true,
 }
 
 for k, v in pairs(opts) do
