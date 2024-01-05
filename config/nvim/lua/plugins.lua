@@ -41,8 +41,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
-    enabled = false,
-    config = true,
+    opts = {},
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -249,6 +248,13 @@ return {
     event = { "BufRead", "BufNewFile" },
   },
   {
+    "shellRaining/hlchunk.nvim",
+    event = { "UIEnter" },
+    config = function()
+      require("hlchunk").setup({})
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     lazy = false,
     dependencies = {
@@ -447,8 +453,9 @@ return {
     event = "VeryLazy",
     opts = {
       render = "compact",
-      stages = "fade",
-    }
+      stages = "slide",
+      timeout = 3000,
+    },
   },
   {
     "stevearc/aerial.nvim",
