@@ -6,7 +6,7 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/reyalka/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/reyalka/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/reyalka\x24
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_apps:cd\x20\x7e/apps/
 SETUVAR _fish_abbr_bb:brave\x2dbrowser
 SETUVAR _fish_abbr_bd:bun\x20dev

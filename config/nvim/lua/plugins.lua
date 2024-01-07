@@ -6,6 +6,7 @@ return {
         "junegunn/seoul256.vim",
         "catppuccin/nvim",
         "cocopon/iceberg.vim",
+        "tiagovla/tokyodark.nvim",
       },
     },
     cmd = {
@@ -251,7 +252,11 @@ return {
     "shellRaining/hlchunk.nvim",
     event = { "UIEnter" },
     config = function()
-      require("hlchunk").setup({})
+      require("hlchunk").setup({
+        line_num = {
+          enable = false,
+        },
+      })
     end,
   },
   {

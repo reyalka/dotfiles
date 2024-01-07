@@ -51,6 +51,7 @@
   "telescope-zenn.nvim": { "branch": "main", "commit": "c2cc6bc48ba4663f2fbfa656a747fb7972b91ba3" },
   "telescope.nvim": { "branch": "master", "commit": "3466159b0fcc1876483f6f53587562628664d850" },
   "toggleterm.nvim": { "branch": "main", "commit": "cbd041d91b90cd3c02df03fe6133208888f8e008" },
+  "tokyodark.nvim": { "branch": "master", "commit": "b6f365cf5b6a2a2fa7de2578ca047db0721335ec" },
   "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" },
   "translate.nvim": { "branch": "main", "commit": "30cc9e9f339b61e7bd40bc1ba7af73ea193bf589" },
   "vim-scouter": { "branch": "master", "commit": "5221901d4ad6b2ef8b370b336db2aa7f69f2b6dc" },
