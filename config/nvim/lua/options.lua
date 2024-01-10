@@ -1,7 +1,7 @@
 local opts = {
-  tabstop = 2,
-  shiftwidth = 2,
-  expandtab = true,
+  tabstop = 4,
+  shiftwidth = 4,
+  -- expandtab = true,
   number = true,
   swapfile = false,
   ambiwidth = "single",
