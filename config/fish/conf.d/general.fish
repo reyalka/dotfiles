@@ -9,3 +9,6 @@ fish_add_path /usr/local/zig
 
 # global variables
 set -Ux EDITOR /usr/local/bin/nvim
+
+# settings for brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
