@@ -6,7 +6,7 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/reyalka/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/reyalka/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/reyalka\x24
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_apps:cd\x20\x7e/apps/
 SETUVAR _fish_abbr_bb:brave\x2dbrowser
 SETUVAR _fish_abbr_bd:bun\x20dev
@@ -39,10 +39,11 @@ SETUVAR _fish_abbr_tg:jest\x2dtest\x2dgen
 SETUVAR _fish_abbr_tr:tree
 SETUVAR _fish_abbr_vrc:nvim\x20/home/reyalka/dotfiles/config/fish/conf\x2ed/aliases\x2efish
 SETUVAR _fish_abbr_yd:yarn\x20dev
+SETUVAR _fisher_decors_2F_fish_2D_colored_2D_man_files:\x7e/\x2econfig/fish/functions/man\x2efish
 SETUVAR _fisher_jethrokuan_2F_z_files:\x7e/\x2econfig/fish/functions/__z\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_add\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_clean\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_complete\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_autopair_2E_fish_files:\x7e/\x2econfig/fish/functions/_autopair_backspace\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_left\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_right\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_insert_same\x2efish\x1e\x7e/\x2econfig/fish/functions/_autopair_tab\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/autopair\x2efish
 SETUVAR _fisher_laughedelic_2F_fish__logo_files:\x7e/\x2econfig/fish/functions/fish_logo\x2efish\x1e\x7e/\x2econfig/fish/completions/fish_logo\x2efish
-SETUVAR _fisher_plugins:laughedelic/fish_logo\x1ejethrokuan/z\x1ejorgebucaran/autopair\x2efish
+SETUVAR _fisher_plugins:laughedelic/fish_logo\x1ejethrokuan/z\x1ejorgebucaran/autopair\x2efish\x1edecors/fish\x2dcolored\x2dman
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr

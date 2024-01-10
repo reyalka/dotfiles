@@ -97,7 +97,8 @@ return {
     config = function()
       require("fidget").setup({
         text = {
-          spinner = "moon",
+          spinner = {
+          },
         },
       })
     end,
@@ -110,11 +111,13 @@ return {
       { "neovim/nvim-lspconfig" },
       { "nvimdev/lspsaga.nvim" },
       { "windwp/nvim-ts-autotag" },
+      { "ErichDonGubler/lsp_lines.nvim" },
     },
     lazy = false,
     config = function()
       require("mason").setup({})
       require("nvim-ts-autotag").setup()
+      require("lsp_lines").setup({})
       local lspconfig = require("lspconfig")
       require("mason-lspconfig").setup({
         ensure_installed = {
