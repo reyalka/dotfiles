@@ -2,12 +2,10 @@ return {
   {
     "folke/tokyonight.nvim",
     dependencies = {
-      {
-        "junegunn/seoul256.vim",
-        "catppuccin/nvim",
-        "cocopon/iceberg.vim",
-        "tiagovla/tokyodark.nvim",
-      },
+      "junegunn/seoul256.vim",
+      "catppuccin/nvim",
+      "cocopon/iceberg.vim",
+      "tiagovla/tokyodark.nvim",
     },
     cmd = {
       "LoadColorSheme",
