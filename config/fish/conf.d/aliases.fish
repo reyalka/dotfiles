@@ -11,7 +11,7 @@ abbr t "touch"
 abbr tr "tree"
 abbr mr "mkdir"
 abbr apps "cd ~/apps/"
-abbr dt "exa --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
+abbr dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
 abbr nd "npm run dev"
 abbr pd "pnpm run dev"
 abbr px "pnpm dlx"
@@ -34,7 +34,7 @@ abbr nvimtutor "nvim /tmp/vimtutor.txt"
 abbr lg "lazygit"
 
 alias .. "_bd"
-alias bat "batcat"
+alias ll "eza -al"
 
 function rmcd
     set current (pwd)
