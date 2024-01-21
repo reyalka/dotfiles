@@ -97,8 +97,7 @@ return {
     config = function()
       require("fidget").setup({
         text = {
-          spinner = {
-          },
+          spinner = {},
         },
       })
     end,
@@ -553,5 +552,11 @@ return {
         },
       })
     end,
+  },
+  {
+    "gptlang/CopilotChat.nvim",
+	cmd = {
+	  "CopilotChat",
+	},
   },
 }

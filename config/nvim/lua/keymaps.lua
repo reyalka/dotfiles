@@ -18,13 +18,12 @@ set("n", "<space>tg", "<cmd>Telescope live_grep<cr>")
 set("n", "<space>tt", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 set("n", "<space>tb", "<cmd>Telescope file_browser<cr>")
 set("n", "<space>tf", "<cmd>Telescope frecency<cr>")
-set("n", "<space>tem", "<cmd>Telescope emoji<cr>")
 
 -- translate
 set("x", "<space>tr", "<cmd>Translate ja<CR>")
 
 -- Lspsaga terminal
-set("n", "<space>ter", "<cmd>Lspsaga term_toggle<CR>")
+set("n", "<space>ter", "<cmd>ToggleTerm direction=float<CR>")
 
 -- bufferline
 set("n", "<Space>1", "<Cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" })
