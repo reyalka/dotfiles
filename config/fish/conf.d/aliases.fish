@@ -54,7 +54,7 @@ function cr
     if test -d $argv
         echo "$argv has already created"
     else
-        mkdir $argv
+        mkdir $argv -p
     end
     cd $argv
 end

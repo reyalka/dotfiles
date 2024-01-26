@@ -552,4 +552,10 @@ return {
       })
     end,
   },
+  {
+    "gptlang/CopilotChat.nvim",
+	cmd = {
+	  "CopilotChat",
+	},
+  },
 }

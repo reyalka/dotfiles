@@ -13,3 +13,6 @@ set -Ux EDITOR /usr/local/bin/nvim
 
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# settings for mise
+~/.local/bin/mise activate fish | source
