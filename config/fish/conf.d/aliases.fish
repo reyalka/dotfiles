@@ -34,7 +34,7 @@ abbr nvimtutor "nvim /tmp/vimtutor.txt"
 abbr lg "lazygit"
 
 alias .. "_bd"
-alias ll "eza -al"
+alias ll "eza -alT --icons -L 1"
 
 function rmcd
     set current (pwd)

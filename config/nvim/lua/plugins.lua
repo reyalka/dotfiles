@@ -95,8 +95,7 @@ return {
     config = function()
       require("fidget").setup({
         text = {
-          spinner = {
-          },
+          spinner = {},
         },
       })
     end,
@@ -345,6 +344,7 @@ return {
           "css",
           "markdown",
           "markdown_inline",
+          "svelte",
         },
         sync_install = false,
         highlight = { enable = true },
@@ -539,7 +539,7 @@ return {
           },
           external = {
             python = "python3 %",
-            rust = "cargo run %",
+            rust = "cargo run",
             sh = " bash %",
             fish = "fish %",
           },

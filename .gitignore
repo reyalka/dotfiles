@@ -1,2 +1,4 @@
 install.sh
-old_install.sh
+*.txt
+*/logs/*
+

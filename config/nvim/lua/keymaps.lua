@@ -55,7 +55,7 @@ set("n", "<Space>o", "<cmd>lua require('oil').open_float()<CR>", { desc = "Open 
 set("n", "<Space>l", "<cmd>Lazy<CR>")
 
 --formatter
-set("n", "<Space>f", "<cmd>FormatWrite<CR>", { desc = "Format and save file" })
+set("n", "<Space>f", "<cmd>FormatWrite<CR><cmd>w<CR>", { desc = "Format and save file" })
 
 --jaq-nvim
 set("n", "<Space>j", "<cmd>Jaq<CR>")
