@@ -1,4 +1,5 @@
 install.sh
 *.txt
+*.log
 */logs/*
 
