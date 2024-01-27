@@ -10,6 +10,9 @@ return {
     cmd = {
       "LoadColorSheme",
     },
+    keys = {
+      { "colo", mode = "c" },
+    },
   },
   {
     "sainnhe/everforest",
