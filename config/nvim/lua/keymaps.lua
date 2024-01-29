@@ -36,6 +36,8 @@ set("n", "<Space>7", "<Cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go to buffer 7
 set("n", "<Space>8", "<Cmd>BufferLineGoToBuffer 8<CR>", { desc = "Go to buffer 8" })
 set("n", "<Space>9", "<Cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" })
 set("n", "<Space>s", "<Cmd>BufferLineSortByDirectory<CR>", { desc = "Sort buffers by directory" })
+set("n", "<Space><tab>", "<Cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
+set("n", "<Space><S-tab>", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Prev buffer" })
 set("n", "<Space>w", "<Cmd>bd<CR>", { desc = "Close buffer" })
 
 -- WhichKey
@@ -54,7 +56,7 @@ set("n", "<Space>o", "<cmd>lua require('oil').open_float()<CR>", { desc = "Open 
 set("n", "<Space>l", "<cmd>Lazy<CR>")
 
 --formatter
-set("n", "<Space>f", "<cmd>FormatWrite<CR><cmd>w<CR>", { desc = "Format and save file" })
+set("n", "<Space>f", "<cmd>FormatWrite<CR>", { desc = "Format and save file" })
 
 --jaq-nvim
 set("n", "<Space>j", "<cmd>Jaq<CR>")
