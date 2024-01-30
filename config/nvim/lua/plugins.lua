@@ -89,11 +89,10 @@ return {
             insx.add(
                 "*",
                 require("insx.recipe.auto_pair")({
-					open = [[/**]],
-					close = [[*/]],
+                    open = [[/**]],
+                    close = [[*/]],
                 })
             )
-			insx.add("<CR>")
         end,
     },
     {
