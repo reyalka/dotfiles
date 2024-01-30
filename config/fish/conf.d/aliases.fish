@@ -25,7 +25,7 @@ abbr gt "gnome-terminal"
 abbr mt "mate-terminal"
 abbr lg "lazygit"
 
-alias .. "_bd"
+alias .. "__bd"
 alias ll "eza -alT --icons -L 1"
 
 function rmcd
@@ -59,7 +59,7 @@ function search
     find $alias_path -type f -print | GREP_COLOR="1;34" xargs grep "^alias $argv" --color=auto
 end
 
-function _bd
+function __bd
     for i in (seq 1 $argv)
         cd ..
     end
