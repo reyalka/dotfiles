@@ -231,18 +231,17 @@ return {
                 callback = function(_)
                     local set = vim.keymap.set
                     set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-                    set("n", "<Space>gf", "<cmd>lua vim.lsp.buf.format()<CR>")
-                    set("n", "<Space>gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-                    set("n", "<Space>gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-                    set("n", "<Space>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-                    set("n", "<Space>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-                    set("n", "<Space>gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-                    set("n", "<Space>gn", "<cmd>Lspsaga rename<CR>")
-                    set("n", "<Space>ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-                    set("n", "<Space>ge", "<cmd>lua vim.diagnostic.open_float()<CR>")
-                    set("n", "<Space>g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-                    set("n", "<Space>g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-                    set("n", "<Space>g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+                    set("n", "gF", "<cmd>Lspsaga finder<CR>")
+                    set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+                    set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+                    set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+                    set("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+                    set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+                    set("n", "<Space>n", "<cmd>Lspsaga rename<CR>")
+                    set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+                    set("n", "ge", "<cmd>lua vim.diagnostic.open_float()<CR>")
+                    set("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+                    set("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
                 end,
             })
             vim.lsp.handlers["textDocument/publishDiagnostics"] =
@@ -271,6 +270,7 @@ return {
                     args = {
                         "format",
                         "--indent-style=space",
+                        "--indent-width=4",
                         "--stdin-file-path",
                         util.escape_path(util.get_current_buffer_file_path()),
                     },
