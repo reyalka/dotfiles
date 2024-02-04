@@ -8,9 +8,8 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-starship init fish | source
+# starship init fish | source
 set -g fish_prompt_pwd_dir_length 10
-starship init fish | source
 
 # path
 set -x GOPATH $HOME/.go
