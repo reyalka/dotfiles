@@ -3,6 +3,8 @@
 [container]
 disabled = true
 
-
 [directory]
 truncation_length = 1000
+
+[golang]
+symbol = " "
