@@ -12,7 +12,6 @@ end
 set -g fish_prompt_pwd_dir_length 10
 
 # path
-set -x GOPATH $HOME/.go
 fish_add_path $HOME/.cargo/bin
 fish_add_path $GOPATH/bin 
 fish_add_path $HOME/.deno/bin
@@ -20,6 +19,7 @@ fish_add_path /usr/local/zig
 
 # global variables
 set -Ux EDITOR /usr/local/bin/nvim
+set -x GOPATH $HOME/.go
 
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -30,7 +30,6 @@ abbr cl "clear"
 abbr t "touch"
 abbr tr "tree"
 abbr mr "mkdir"
-abbr dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
 abbr px "pnpm dlx"
 abbr yx "yarn dlx"
 abbr vrc "nvim $alias_path"
@@ -46,6 +45,7 @@ abbr lg "lazygit"
 
 alias .. "__bd"
 alias ll "eza -alT --icons -L 1"
+alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
 
 function rmcd
     set current (pwd)
