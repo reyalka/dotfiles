@@ -34,12 +34,10 @@ abbr px "pnpm dlx"
 abbr yx "yarn dlx"
 abbr vrc "nvim $alias_path"
 abbr p "pkill"
-abbr sb "pkill brave"
 abbr q "exit"
 abbr nv "nvim"
 abbr nvi "nvim"
 abbr nvim-startuptime "vim-startuptime --vimpath nvim"
-abbr gt "gnome-terminal"
 abbr mt "mate-terminal"
 abbr lg "lazygit"
 
@@ -79,4 +77,3 @@ function __bd
         cd ..
     end
 end
-
