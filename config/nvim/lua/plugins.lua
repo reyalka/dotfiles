@@ -7,7 +7,9 @@ return {
             "cocopon/iceberg.vim",
             "tiagovla/tokyodark.nvim",
         },
-        event = "colorscheme",
+        keys = {
+			{"colo", mode = "c"},
+        },
     },
     {
         "sainnhe/everforest",
@@ -113,7 +115,7 @@ return {
             { "williamboman/mason-lspconfig.nvim" },
             { "neovim/nvim-lspconfig" },
             { "nvimdev/lspsaga.nvim" },
-            { "windwp/nvim-ts-autotag" },
+            { "windwp/nvim-ts-autotag", ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" } },
             { "ErichDonGubler/lsp_lines.nvim" },
         },
         event = { "BufReadPost", "BufNewFile" },
@@ -271,7 +273,7 @@ return {
     },
     {
         "hrsh7th/nvim-cmp",
-        event = {"InsertEnter", "CmdlineEnter"},
+        event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
             { "hrsh7th/cmp-nvim-lsp" },
             { "hrsh7th/cmp-nvim-lua" },
@@ -336,7 +338,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        event = { "BufRead", "BufNewFile" },
+        event = "LspAttach",
         config = function()
             local configs = require("nvim-treesitter.configs")
             configs.setup({
