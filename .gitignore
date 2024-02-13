@@ -2,4 +2,4 @@
 *.txt
 *.log
 */logs/*
-
+./config/fish/conf.d/starship.fish
