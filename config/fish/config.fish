@@ -16,6 +16,7 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $GOPATH/bin 
 fish_add_path $HOME/.deno/bin
 fish_add_path /usr/local/zig
+fish_add_path $HOME/.local/bin
 
 # global variables
 set -Ux EDITOR /usr/local/bin/nvim
