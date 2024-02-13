@@ -8,7 +8,7 @@ return {
             "tiagovla/tokyodark.nvim",
         },
         keys = {
-			{"colo", mode = "c"},
+            { "colo", mode = "c" },
         },
     },
     {
