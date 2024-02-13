@@ -7,9 +7,7 @@ return {
             "cocopon/iceberg.vim",
             "tiagovla/tokyodark.nvim",
         },
-        keys = {
-            { "colo", mode = "c" },
-        },
+        event = "colorscheme",
     },
     {
         "sainnhe/everforest",
