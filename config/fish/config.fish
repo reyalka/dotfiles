@@ -24,15 +24,13 @@ set -x GOPATH $HOME/.go
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-set -x alias_path "$HOME/dotfiles/config/fish/conf.d/aliases.fish"
-
 abbr cl "clear"
 abbr t "touch"
 abbr tr "tree"
 abbr mr "mkdir"
 abbr px "pnpm dlx"
 abbr yx "yarn dlx"
-abbr vrc "nvim $alias_path"
+abbr vrc "nvim $(status --current-file)"
 abbr p "pkill"
 abbr q "exit"
 abbr nv "nvim"
