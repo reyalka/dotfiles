@@ -8,7 +8,7 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-# starship init fish | source
+starship init fish | source
 set -g fish_prompt_pwd_dir_length 10
 
 # path
@@ -40,6 +40,7 @@ abbr nivm "nvim"
 abbr nvim-startuptime "vim-startuptime --vimpath nvim"
 abbr mt "mate-terminal"
 abbr lg "lazygit"
+abbr ss "starship"
 
 alias .. "__bd"
 alias ll "eza -alT --icons -L 1"
