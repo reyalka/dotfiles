@@ -11,16 +11,18 @@ end
 starship init fish | source
 set -g fish_prompt_pwd_dir_length 10
 
+# global variables
+set -Ux EDITOR /usr/local/bin/nvim
+set -x BUN_INSTALL "$HOME/.bun"
+set -x GOPATH $HOME/.go
+
 # path
 fish_add_path $HOME/.cargo/bin
 fish_add_path $GOPATH/bin 
 fish_add_path $HOME/.deno/bin
 fish_add_path /usr/local/zig
 fish_add_path $HOME/.local/bin
-
-# global variables
-set -Ux EDITOR /usr/local/bin/nvim
-set -x GOPATH $HOME/.go
+fish_add_path $BUN_INSTALL/bin
 
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

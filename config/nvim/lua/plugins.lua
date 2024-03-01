@@ -193,7 +193,7 @@ return {
                     set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
                     set("n", "<Space>n", "<cmd>Lspsaga rename<CR>")
                     set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-                    set("n", "ge", "<cmd>lua vim.diagnostic.open_float()<CR>")
+                    set("n", "g@", "<cmd>lua vim.diagnostic.open_float()<CR>")
                     set("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
                     set("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
                 end,
@@ -202,7 +202,7 @@ return {
                 vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
                     virtual_text = {
                         format = function(diagnostic)
-                            return string.format("%s [%s: %s]", diagnostic.message, diagnostic.source, diagnostic.code)
+                            return string.format("%s [%s:%s]", diagnostic.message, diagnostic.source, diagnostic.code)
                         end,
                         update_in_insert = true,
                     },
