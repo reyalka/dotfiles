@@ -12,7 +12,7 @@ starship init fish | source
 set -g fish_prompt_pwd_dir_length 10
 
 # global variables
-set -Ux EDITOR /usr/local/bin/nvim
+set -Ux EDITOR /bin/nvim
 set -x BUN_INSTALL "$HOME/.bun"
 set -x GOPATH $HOME/.go
 
