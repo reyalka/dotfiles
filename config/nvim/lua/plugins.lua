@@ -132,12 +132,10 @@ return {
                     "biome",
                     "cssls",
                     "emmet_language_server",
-                    "gopls",
                     "html",
                     "jsonls",
                     "lua_ls",
                     "pyright",
-                    "rust_analyzer",
                     "tsserver",
                 },
             })
@@ -419,6 +417,8 @@ return {
             local configs = require("nvim-treesitter.configs")
             configs.setup({
                 ensure_installed = {
+					"fish",
+					"json",
                     "astro",
                     "css",
                     "html",
