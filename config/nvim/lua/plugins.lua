@@ -316,6 +316,7 @@ return {
                     css = { { "prettierd", "prettier" } },
                     scss = { { "prettierd", "prettier" } },
                     json = { { "biome", "prettierd", "prettier" } },
+                    astro = { { "prettierd", "prettier" } },
                     ["_"] = { "trim_whitespace" },
                 },
             })
