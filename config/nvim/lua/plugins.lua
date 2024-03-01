@@ -125,17 +125,18 @@ return {
             -- require("lsp_lines").setup({})
             require("mason-lspconfig").setup({
                 ensure_installed = {
+                    "astro",
                     "bashls",
+                    "biome",
                     "cssls",
+                    "emmet_language_server",
+                    "gopls",
                     "html",
                     "jsonls",
-                    "tsserver",
-                    "gopls",
-                    "rust_analyzer",
-                    "pyright",
-                    "biome",
                     "lua_ls",
-                    "emmet_language_server",
+                    "pyright",
+                    "rust_analyzer",
+                    "tsserver",
                 },
             })
 
@@ -343,18 +344,19 @@ return {
             local configs = require("nvim-treesitter.configs")
             configs.setup({
                 ensure_installed = {
-                    "lua",
-                    "vim",
-                    "vimdoc",
-                    "javascript",
-                    "html",
-                    "typescript",
-                    "tsx",
-                    "scss",
+					"astro",
                     "css",
+                    "html",
+                    "javascript",
+                    "lua",
                     "markdown",
                     "markdown_inline",
+                    "scss",
                     "svelte",
+                    "tsx",
+                    "typescript",
+                    "vim",
+                    "vimdoc",
                 },
                 sync_install = false,
                 highlight = { enable = true },
