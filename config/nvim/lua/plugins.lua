@@ -305,16 +305,16 @@ return {
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
-                    lua = { "stylua" },
-                    javascript = { { "biome", "prettierd", "prettier" } },
-                    typescript = { { "biome", "prettierd", "prettier" } },
-                    javascriptreact = { { "biome", "prettierd", "prettier" } },
-                    typescriptreact = { { "biome", "prettierd", "prettier" } },
-                    html = { { "prettierd", "prettier" } },
-                    css = { { "prettierd", "prettier" } },
-                    scss = { { "prettierd", "prettier" } },
-                    json = { { "biome", "prettierd", "prettier" } },
                     astro = { { "prettierd", "prettier" } },
+                    css = { { "prettierd", "prettier" } },
+                    html = { { "prettierd", "prettier" } },
+                    javascript = { { "biome", "prettierd", "prettier" } },
+                    javascriptreact = { { "biome", "prettierd", "prettier" } },
+                    json = { { "biome", "prettierd", "prettier" } },
+                    lua = { "stylua" },
+                    scss = { { "prettierd", "prettier" } },
+                    typescript = { { "biome", "prettierd", "prettier" } },
+                    typescriptreact = { { "biome", "prettierd", "prettier" } },
                     ["_"] = { "trim_whitespace" },
                 },
             })
