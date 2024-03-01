@@ -1,6 +1,5 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
-tap "rcmdnk/file"
 brew "eza"
 brew "fzf"
 brew "gh"
