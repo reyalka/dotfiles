@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     {
         "folke/tokyonight.nvim",
@@ -120,9 +121,10 @@ return {
         },
         event = { "BufReadPost", "BufNewFile" },
         config = function()
+            local lspconfig = require("lspconfig")
             require("mason").setup({})
             require("nvim-ts-autotag").setup()
-            -- require("lsp_lines").setup({})
+            require("lspsaga").setup({})
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "astro",
@@ -140,7 +142,32 @@ return {
                 },
             })
 
-            local lspconfig = require("lspconfig")
+            ---@param names string[]
+            ---@return string[]
+            local function get_plugin_paths(names)
+                local plugins = require("lazy.core.config").plugins
+                local paths = {}
+                for _, name in ipairs(names) do
+                    if plugins[name] then
+                        table.insert(paths, plugins[name].dir .. "/lua")
+                    else
+                        vim.notify("Invalid plugin name: " .. name)
+                    end
+                end
+                return paths
+            end
+
+            ---@param plugins string[]
+            ---@return string[]
+            local function library(plugins)
+                local paths = get_plugin_paths(plugins)
+                table.insert(paths, vim.fn.stdpath("config") .. "/lua")
+                table.insert(paths, vim.env.VIMRUNTIME .. "/lua")
+                table.insert(paths, "${3rd}/luv/library")
+                table.insert(paths, "${3rd}/busted/library")
+                table.insert(paths, "${3rd}/luassert/library")
+                return paths
+            end
 
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
@@ -148,6 +175,23 @@ return {
                     capabilities.textDocument.completion.completionItem.snippetSupport = true
                     lspconfig[server_name].setup({
                         capabilities = capabilities,
+                    })
+                end,
+                ["lua_ls"] = function()
+                    lspconfig.lua_ls.setup({
+                        settings = {
+                            Lua = {
+                                runtime = {
+                                    version = "LuaJIT",
+                                    pathStrict = true,
+                                    path = { "?.lua", "?/init.lua" },
+                                },
+                                workspace = {
+                                    library = library({ "lazy.nvim" }),
+                                    checkThirdParty = "Disable",
+                                },
+                            },
+                        },
                     })
                 end,
                 ["tsserver"] = function()
@@ -208,51 +252,78 @@ return {
                         update_in_insert = true,
                     },
                 })
-            require("lspsaga").setup({})
         end,
     },
+    -- {
+    --     "mhartington/formatter.nvim",
+    --     cmd = {
+    --         "Format",
+    --         "FormatWrite",
+    --     },
+    --     config = function()
+    --         local biome = function()
+    --             local util = require("formatter.util")
+    --             return {
+    --                 exe = "biome",
+    --                 args = {
+    --                     "format",
+    --                     "--indent-style=space",
+    --                     "--indent-width=4",
+    --                     "--stdin-file-path",
+    --                     util.escape_path(util.get_current_buffer_file_path()),
+    --                 },
+    --                 stdin = true,
+    --             }
+    --         end
+    --         local joinWithDot = function(...)
+    --             local args = { ... }
+    --             return table.concat(args, ".")
+    --         end
+    --         local getFormatter = function(filetype, formattertype)
+    --             return require(joinWithDot("formatter", "filetypes", filetype))[formattertype]
+    --         end
+    --         require("formatter").setup({
+    --             filetype = {
+    --                 html = { getFormatter("html", "prettier") },
+    --                 css = { getFormatter("css", "prettier") },
+    --                 scss = { getFormatter("css", "prettier") },
+    --                 lua = { getFormatter("lua", "stylua") },
+    --                 sh = { getFormatter("sh", "shfmt") },
+    --                 rust = { getFormatter("rust", "rustfmt") },
+    --                 json = { biome },
+    --                 javascript = { biome },
+    --                 javascriptreact = { biome },
+    --                 typescriptreact = { biome },
+    --                 typescript = { biome },
+    --             },
+    --         })
+    --     end,
+    -- },
     {
-        "mhartington/formatter.nvim",
-        cmd = {
-            "Format",
-            "FormatWrite",
+        "stevearc/conform.nvim",
+        keys = {
+            { "<space>f", mode = "n" },
         },
         config = function()
-            local biome = function()
-                local util = require("formatter.util")
-                return {
-                    exe = "biome",
-                    args = {
-                        "format",
-                        "--indent-style=space",
-                        "--indent-width=4",
-                        "--stdin-file-path",
-                        util.escape_path(util.get_current_buffer_file_path()),
-                    },
-                    stdin = true,
-                }
-            end
-            local joinWithDot = function(...)
-                local args = { ... }
-                return table.concat(args, ".")
-            end
-            local getFormatter = function(filetype, formattertype)
-                return require(joinWithDot("formatter", "filetypes", filetype))[formattertype]
-            end
-            require("formatter").setup({
-                filetype = {
-                    html = { getFormatter("html", "prettier") },
-                    css = { getFormatter("css", "prettier") },
-                    scss = { getFormatter("css", "prettier") },
-                    lua = { getFormatter("lua", "stylua") },
-                    sh = { getFormatter("sh", "shfmt") },
-                    rust = { getFormatter("rust", "rustfmt") },
-                    json = { biome },
-                    javascript = { biome },
-                    javascriptreact = { biome },
-                    typescriptreact = { biome },
-                    typescript = { biome },
+            require("conform").setup({
+                formatters_by_ft = {
+                    lua = { "stylua" },
+                    javascript = { { "biome", "prettierd", "prettier" } },
+                    typescript = { { "biome", "prettierd", "prettier" } },
+                    javascriptreact = { { "biome", "prettierd", "prettier" } },
+                    typescriptreact = { { "biome", "prettierd", "prettier" } },
+                    html = { { "prettierd", "prettier" } },
+                    css = { { "prettierd", "prettier" } },
+                    scss = { { "prettierd", "prettier" } },
+                    json = { { "biome", "prettierd", "prettier" } },
+                    ["_"] = { "trim_whitespace" },
                 },
+            })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                pattern = "*",
+                callback = function(args)
+                    require("conform").format({ bufnr = args.buf })
+                end,
             })
         end,
     },
@@ -266,6 +337,9 @@ return {
         event = { "UIEnter" },
         config = function()
             require("hlchunk").setup({
+                chunk = {
+                    enable = false,
+                },
                 line_num = {
                     enable = false,
                 },
@@ -344,7 +418,7 @@ return {
             local configs = require("nvim-treesitter.configs")
             configs.setup({
                 ensure_installed = {
-					"astro",
+                    "astro",
                     "css",
                     "html",
                     "javascript",

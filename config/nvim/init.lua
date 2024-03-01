@@ -11,10 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+---@class LazyConfig
 local opts = {
     performance = {
         cache = {
-            enabled = true,
+			enabled = true,
         },
     },
 }
