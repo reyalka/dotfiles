@@ -1,5 +1,5 @@
 ---@class LazySpec
-return {
+local plugins = {
     {
         "folke/tokyonight.nvim",
         dependencies = {
@@ -417,8 +417,8 @@ return {
             local configs = require("nvim-treesitter.configs")
             configs.setup({
                 ensure_installed = {
-					"fish",
-					"json",
+                    "fish",
+                    "json",
                     "astro",
                     "css",
                     "html",
@@ -646,3 +646,4 @@ return {
         },
     },
 }
+return plugins
