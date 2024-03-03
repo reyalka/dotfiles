@@ -119,7 +119,7 @@ local plugins = {
             { "windwp/nvim-ts-autotag", ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" } },
             { "ErichDonGubler/lsp_lines.nvim" },
         },
-        event = { "BufReadPost", "BufNewFile" },
+        event = { "BufRead", "BufNewFile" },
         config = function()
             local lspconfig = require("lspconfig")
             require("mason").setup({})
@@ -206,6 +206,7 @@ local plugins = {
                             "javascriptreact",
                             "typescript",
                             "typescriptreact",
+                            "astro",
                         },
                     })
                 end,
