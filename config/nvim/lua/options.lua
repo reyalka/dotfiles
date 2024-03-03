@@ -14,4 +14,4 @@ for k, v in pairs(opts) do
     vim.opt[k] = v
 end
 
-vim.opt.clipboard:append({ unnamedeplus = true })
+vim.opt.clipboard:append({ unnamed = true })

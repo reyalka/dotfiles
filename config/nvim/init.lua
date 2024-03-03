@@ -12,13 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 ---@class LazyConfig
-local opts = {
-    performance = {
-        cache = {
-			enabled = true,
-        },
-    },
-}
+local opts = {}
 
 require("options")
 require("lazy").setup(require("plugins"), opts)
