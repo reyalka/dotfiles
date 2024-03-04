@@ -117,7 +117,6 @@ local plugins = {
             { "neovim/nvim-lspconfig" },
             { "nvimdev/lspsaga.nvim" },
             { "windwp/nvim-ts-autotag", ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" } },
-            { "ErichDonGubler/lsp_lines.nvim" },
         },
         event = { "BufRead", "BufNewFile" },
         config = function()
@@ -136,6 +135,7 @@ local plugins = {
                     "jsonls",
                     "lua_ls",
                     "pyright",
+                    "rust_analyzer",
                     "tsserver",
                 },
             })
@@ -202,11 +202,11 @@ local plugins = {
                 ["tailwindcss"] = function()
                     lspconfig.tailwindcss.setup({
                         filetypes = {
+                            "astro",
                             "javascript",
                             "javascriptreact",
                             "typescript",
                             "typescriptreact",
-                            "astro",
                         },
                     })
                 end,
@@ -316,6 +316,7 @@ local plugins = {
                     scss = { { "prettierd", "prettier" } },
                     typescript = { { "biome", "prettierd", "prettier" } },
                     typescriptreact = { { "biome", "prettierd", "prettier" } },
+                    yaml = { "yamlfmt" },
                     ["_"] = { "trim_whitespace" },
                 },
             })
