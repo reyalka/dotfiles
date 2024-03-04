@@ -1,5 +1,7 @@
-*install.sh
 *.txt
 *.log
 */logs/*
-config/fish/conf.d/starship.fish
+config/fish/fish_variables
+config/fish/themes/
+config/fish/conf.d/
+config/fish/completions/
