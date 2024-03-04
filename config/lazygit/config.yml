@@ -1,4 +1,5 @@
 os:
   editPreset: "nvim"
+  openLink: "$BROWSER {{link}}"
 gui:
   nerdFontsVersion: "3"
