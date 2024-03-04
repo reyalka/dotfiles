@@ -1,8 +1,8 @@
 *.txt
 *.log
-*/logs/*
+*/logs/
 config/fish/fish_variables
-config/fish/themes/
-config/fish/conf.d/
-config/fish/completions/
-config/fish/functions/
+config/fish/themes/**
+config/fish/conf.d/**
+config/fish/completions/**
+config/fish/functions/**
