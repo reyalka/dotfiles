@@ -4,7 +4,7 @@ end
 # pnpm
 set -gx PNPM_HOME "/home/reyalka/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
 
@@ -18,7 +18,7 @@ set -x GOPATH $HOME/.go
 
 # path
 fish_add_path $HOME/.cargo/bin
-fish_add_path $GOPATH/bin 
+fish_add_path $GOPATH/bin
 fish_add_path $HOME/.deno/bin
 fish_add_path /usr/local/zig
 fish_add_path $HOME/.local/bin
@@ -27,24 +27,24 @@ fish_add_path $BUN_INSTALL/bin
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-abbr cl "clear"
-abbr t "touch"
-abbr tr "tree"
-abbr mr "mkdir"
+abbr cl clear
+abbr t touch
+abbr tr tree
+abbr mr mkdir
 abbr px "pnpm dlx"
 abbr yx "yarn dlx"
 abbr vrc "nvim $(status --current-file)"
-abbr p "pkill"
-abbr q "exit"
-abbr nv "nvim"
-abbr nvi "nvim"
-abbr nivm "nvim"
+abbr p pkill
+abbr q exit
+abbr nv nvim
+abbr nvi nvim
+abbr nivm nvim
 abbr nvim-startuptime "vim-startuptime --vimpath nvim"
-abbr mt "mate-terminal"
-abbr lg "lazygit"
-abbr ss "starship"
+abbr mt mate-terminal
+abbr lg lazygit
+abbr ss starship
 
-alias .. "__bd"
+alias .. __bd
 alias ll "eza -alT --icons -L 1"
 alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
 
@@ -80,4 +80,3 @@ function __bd
         cd ..
     end
 end
-
