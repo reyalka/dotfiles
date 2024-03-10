@@ -8,6 +8,7 @@ local opts = {
     signcolumn = "yes",
     history = 100,
     termguicolors = true,
+    cursorline = true,
 }
 
 for k, v in pairs(opts) do
