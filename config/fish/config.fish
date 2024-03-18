@@ -27,22 +27,22 @@ fish_add_path $BUN_INSTALL/bin
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-abbr cl clear
-abbr t touch
-abbr tr tree
-abbr mr mkdir
-abbr px "pnpm dlx"
-abbr yx "yarn dlx"
-abbr vrc "nvim $(status --current-file)"
-abbr p pkill
-abbr q exit
-abbr nv nvim
-abbr nvi nvim
-abbr nivm nvim
-abbr nvim-startuptime "vim-startuptime --vimpath nvim"
-abbr mt mate-terminal
-abbr lg lazygit
-abbr ss starship
+abbr -a -- cl clear
+abbr -a -- t touch
+abbr -a -- tr tree
+abbr -a -- mr mkdir
+abbr -a -- px 'pnpm dlx'
+abbr -a -- yx 'yarn dlx'
+abbr -a -- vrc 'nvim /home/reyalka/.config/fish/config.fish'
+abbr -a -- p pkill
+abbr -a -- q exit
+abbr -a -- nv nvim
+abbr -a -- nvi nvim
+abbr -a -- nivm nvim
+abbr -a -- nvim-startuptime 'vim-startuptime --vimpath nvim'
+abbr -a -- mt mate-terminal
+abbr -a -- lg lazygit
+abbr -a -- ss starship
 
 alias .. __bd
 alias ll "eza -alT --icons -L 1"
