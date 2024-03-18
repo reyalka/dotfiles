@@ -4,6 +4,7 @@ set("i", "jk", "<esc>")
 set({ "n", "i", "v" }, "<c-s>", "<cmd>w<cr>", { desc = "Save file" })
 set("n", "<Space>", "<NOP>")
 set({ "i", "v" }, "<esc>", "<esc><cmd>w<cr>")
+set({ "n", "v" }, "gy", '"+y')
 
 -- Copilot
 set("n", "<space>e", "<cmd>Copilot enable<cr>")
