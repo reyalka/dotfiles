@@ -3,6 +3,7 @@ local set = vim.keymap.set
 set("i", "jk", "<esc>")
 set({ "n", "i", "v" }, "<c-s>", "<cmd>w<cr>", { desc = "Save file" })
 set("n", "<Space>", "<NOP>")
+set({ "i", "v" }, "<esc>", "<esc><cmd>w<cr>")
 
 -- Copilot
 set("n", "<space>e", "<cmd>Copilot enable<cr>")
