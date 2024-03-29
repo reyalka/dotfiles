@@ -86,15 +86,25 @@ local plugins = {
         "hrsh7th/nvim-insx",
         event = "InsertEnter",
         config = function()
-            require("insx.preset.standard").setup()
             local insx = require("insx")
-            insx.add(
-                "*",
-                require("insx.recipe.auto_pair")({
-                    open = [[/**]],
-                    close = [[*/]],
-                })
-            )
+
+            insx.add("*", {
+                enabled = function(ctx)
+                    return ctx.match([=[\/\*\%#]=])
+                end,
+                action = function(ctx)
+                    -- 初期:/*|
+
+                    -- ① :/**|
+                    ctx.send("*")
+                    -- 位置を保存
+                    local row, col = ctx.row(), ctx.col()
+                    -- ② :/** */|
+                    ctx.send("<space>*/")
+                    -- ③ :/**| */
+                    ctx.move(row, col)
+                end,
+            })
         end,
     },
     {
@@ -185,7 +195,7 @@ local plugins = {
                                     path = { "?.lua", "?/init.lua" },
                                 },
                                 workspace = {
-                                    library = library({ "lazy.nvim" }),
+                                    library = library({ "lazy.nvim", "nvim-insx" }),
                                     checkThirdParty = "Disable",
                                 },
                             },
