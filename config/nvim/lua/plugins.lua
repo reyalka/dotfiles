@@ -327,6 +327,7 @@ local plugins = {
                     typescript = { { "biome", "prettierd", "prettier" } },
                     typescriptreact = { { "biome", "prettierd", "prettier" } },
                     yaml = { "yamlfmt" },
+                    rust = { "rustfmt" },
                     ["_"] = { "trim_whitespace" },
                 },
             })
