@@ -43,6 +43,7 @@ abbr -a -- nvim-startuptime 'vim-startuptime --vimpath nvim'
 abbr -a -- mt mate-terminal
 abbr -a -- lg lazygit
 abbr -a -- ss starship
+abbr -a -- zl zellij
 
 alias .. __bd
 alias ll "eza -alT --icons -L 1"
