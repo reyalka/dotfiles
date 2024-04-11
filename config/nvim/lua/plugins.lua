@@ -459,6 +459,10 @@ local plugins = {
         end,
     },
     {
+        "nvim-treesitter/playground",
+        cmd = "TSPlaygroundToggle",
+    },
+    {
         "nvim-telescope/telescope.nvim",
         dependencies = {
             { "nvim-lua/plenary.nvim" },
