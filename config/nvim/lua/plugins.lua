@@ -126,13 +126,16 @@ local plugins = {
             { "williamboman/mason-lspconfig.nvim" },
             { "neovim/nvim-lspconfig" },
             { "nvimdev/lspsaga.nvim" },
-            { "windwp/nvim-ts-autotag", ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" } },
+            {
+                "windwp/nvim-ts-autotag",
+                ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+                config = true,
+            },
         },
         event = { "BufRead", "BufNewFile" },
         config = function()
             local lspconfig = require("lspconfig")
             require("mason").setup({})
-            require("nvim-ts-autotag").setup()
             require("lspsaga").setup({})
             require("mason-lspconfig").setup({
                 ensure_installed = {
