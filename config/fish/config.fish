@@ -48,7 +48,7 @@ abbr -a -- zl zellij
 alias .. __bd
 alias ll "eza -alT --icons -L 1"
 alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
-alias ide "zellij -l ide -s $(string split '/' $PWD)[-1]"
+alias ide "zellij -l ide -s (string split '/' (pwd))[-1]"
 
 function rmcd
     set current (pwd)
