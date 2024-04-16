@@ -126,11 +126,6 @@ local plugins = {
             { "williamboman/mason-lspconfig.nvim" },
             { "neovim/nvim-lspconfig" },
             { "nvimdev/lspsaga.nvim" },
-            {
-                "windwp/nvim-ts-autotag",
-                ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-                config = true,
-            },
         },
         event = { "BufRead", "BufNewFile" },
         config = function()
@@ -266,6 +261,10 @@ local plugins = {
                 })
         end,
     },
+    {
+        "windwp/nvim-ts-autotag",
+        ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+        config = true,
     -- {
     --     "mhartington/formatter.nvim",
     --     cmd = {
