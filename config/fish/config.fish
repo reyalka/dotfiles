@@ -48,7 +48,13 @@ abbr -a -- zl zellij
 alias .. __bd
 alias ll "eza -alT --icons -L 1"
 alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
-alias ide "zellij -l ide -s (string split '/' (pwd))[-1]"
+
+function ide
+    set -l session_name (string split '/' (pwd))[-1]
+    set -l sessions (string split '\n' (zellij list-sessions --short -no-formatting 2>/dev/null))
+    zelllij --layout ide --session $session_name \
+        || zellij attach $session_name
+end
 
 function rmcd
     set current (pwd)
