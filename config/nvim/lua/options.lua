@@ -9,6 +9,7 @@ local opts = {
     history = 100,
     termguicolors = true,
     cursorline = true,
+    scrolloff = 999,
 }
 
 for k, v in pairs(opts) do
