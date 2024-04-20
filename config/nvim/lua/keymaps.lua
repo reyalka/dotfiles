@@ -59,7 +59,7 @@ set("n", "<Space>l", "<cmd>Lazy<CR>")
 -- set("n", "<Space>f", "<cmd>FormatWrite<CR>", { desc = "Format and save file" })
 
 -- conform
-set("n", "<Space>f", "<cmd>lua require('conform').format()<CR><cmd>w<CR>", { desc = "Format and save file" })
+set("n", "<Space>f", "<cmd>lua require('conform').format { async = true, lsp_fallback = true }<CR><cmd>w<CR>", { desc = "Format and save file" })
 
 --jaq-nvim
 set("n", "<Space>j", "<cmd>Jaq<CR>")
