@@ -52,7 +52,7 @@ alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
 function ide
     set -l session_name (string split '/' (pwd))[-1]
     set -l sessions (string split '\n' (zellij list-sessions --short -no-formatting 2>/dev/null))
-    zelllij --layout ide --session $session_name \
+    zellij --layout ide --session $session_name \
         || zellij attach $session_name
 end
 
