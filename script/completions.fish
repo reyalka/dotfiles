@@ -46,3 +46,8 @@ notify progress "Adding completions for brew"
 exist brew && curl --silent https://raw.githubusercontent.com/Homebrew/brew/master/completions/fish/brew.fish > ~/dotfiles/config/fish/completions/brew.fish \
     && notify succsess "Completions for brew added" \
     || notify error "Somthing went wrong while adding completions for brew"
+
+notify progress "Adding completions for wezterm"\
+exist wezterm && wezterm shell-completion --shell fish > ~/dotfiles/config/fish/completions/wezterm.fish \
+	&& notify succsess "Completions for wezterm added" \
+	|| notify error "Somthing went wrong while adding completions for wezterm"
