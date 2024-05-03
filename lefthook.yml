@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  commands:
+    stylua:
+      glob: "*.lua"
+      run: stylua {staged_files}
+    fish_indenet:
+      glob: "*.fish"
+      exclude: "config/fish/{completions,conf.d,functions,themes}/*.fish"
+      run: fish_indent -w {staged_files}
+    yamlfmt:
+      glob: "*.yml"
+      run: yamlfmt {staged_files}
