@@ -6,8 +6,7 @@ pre-commit:
       run: stylua {staged_files}
     fish_indenet:
       glob: "*.fish"
-      exclude: "config/fish/{completions,conf.d,functions,themes}/*.fish"
       run: fish_indent -w {staged_files}
     yamlfmt:
-      glob: "*.yml"
+      glob: "*.{yml,yaml}"
       run: yamlfmt {staged_files}
