@@ -146,6 +146,7 @@ local plugins = {
                     "rust_analyzer",
                     "tsserver",
                 },
+                automatic_installation = false,
             })
 
             ---@param names string[]
@@ -265,6 +266,7 @@ local plugins = {
         "windwp/nvim-ts-autotag",
         ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
         config = true,
+    },
     -- {
     --     "mhartington/formatter.nvim",
     --     cmd = {
@@ -359,6 +361,19 @@ local plugins = {
                 },
             })
         end,
+    },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        branch = "canary",
+        dependencies = {
+            { "github/copilot.vim" },
+            { "nvim-lua/plenary.nvim" },
+        },
+        opts = {
+            debug = true, -- Enable debugging
+            -- See Configuration section for rest
+        },
+        -- See Commands section for default commands if you want to lazy load on them
     },
     {
         "hrsh7th/nvim-cmp",
