@@ -6,12 +6,22 @@ set("n", "<Space>", "<NOP>")
 set({ "i", "v" }, "<esc>", "<esc><cmd>w<cr>")
 set({ "n", "v" }, "gy", '"+y')
 set({ "n", "v" }, "gp", '"+p')
+set("n", "gf", function()
+    local cfile = vim.fn.expand("<cfile>")
+    if cfile:match("^https?://") then
+        vim.fn.system("$BROWSER" .. cfile)
+    else
+        vim.cmd("normal! gf")
+    end
+end)
 
 -- Copilot
 set("n", "<space>e", "<cmd>Copilot enable<cr>")
-set("n", "<space>d", "<cmd>Copilot disable<cr>")
+set("n", "<space>cd", "<cmd>Copilot disable<cr>")
 set("n", "<space>cs", "<cmd>Copilot status<cr>")
 
+-- CopilotChat
+set("n", "<space>cc", "<cmd>CopilotChat<cr>")
 -- telescope keymap
 set("n", "<space><space>", "<cmd>Telescope find_files<cr>")
 set("n", "<space>tg", "<cmd>Telescope live_grep<cr>")
