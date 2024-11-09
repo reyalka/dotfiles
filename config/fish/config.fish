@@ -13,8 +13,9 @@ set -g fish_prompt_pwd_dir_length 10
 
 # global variables
 set -Ux EDITOR /bin/nvim
-set -x BUN_INSTALL "$HOME/.bun"
-set -x GOPATH $HOME/.go
+set -Ux BUN_INSTALL "$HOME/.bun"
+set -Ux GOPATH $HOME/.go
+set -Ux AQUA_GLOBAL_CONFIG ~/.config/aqua/aqua.yaml
 
 # path
 fish_add_path $HOME/.cargo/bin
@@ -24,6 +25,7 @@ fish_add_path /usr/local/zig
 fish_add_path $HOME/.local/bin
 fish_add_path $BUN_INSTALL/bin
 fish_add_path $HOME/.moon/bin
+fish_add_path (set -q AQUA_ROOT_DIR; and echo $AQUA_ROOT_DIR; or set -q XDG_DATA_HOME; and echo $XDG_DATA_HOME; or echo $HOME/.local/share)/aquaproj-aqua/bin
 
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -47,6 +49,7 @@ abbr -a -- ss starship
 abbr -a -- zl zellij
 
 alias .. __bd
+alias . dot
 alias ll "eza -alT --icons -L 1"
 alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
 
@@ -87,6 +90,14 @@ end
 function __bd
     for i in (seq 1 $argv)
         cd ..
+    end
+end
+
+function dot
+    if test (count $argv) -eq 0
+        eval (history | head -n 1 | string trim)
+    else
+        source $argv
     end
 end
 

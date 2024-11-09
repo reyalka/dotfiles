@@ -26,3 +26,9 @@ packages:
   - name: golang/go@go1.23.1
   - name: starship/starship@v1.20.1
   - name: jesseduffield/lazygit@v0.44.0
+  - name: junegunn/fzf@v0.55.0
+  - name: mvdan/sh@v3.9.0
+  - name: evilmartians/lefthook@v1.7.15
+  - name: google/yamlfmt@v0.13.0
+  - name: nushell/nushell@0.97.1
+  - name: sharkdp/bat@v0.24.0

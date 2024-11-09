@@ -1,6 +1,7 @@
 *.txt
 *.log
 logs/
+tmp/
 config/fish/fish_variables
 config/fish/themes/**
 config/fish/conf.d/**

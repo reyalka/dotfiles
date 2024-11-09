@@ -309,7 +309,7 @@ local plugins = {
     --             },
     --         })
     --     end,
-    -- },
+    },
     {
         "stevearc/conform.nvim",
         keys = {
