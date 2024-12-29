@@ -22,14 +22,14 @@ local plugins = {
       		]])
         end,
     },
-    {
-        "echasnovski/mini.starter",
-        version = "*",
-        lazy = false,
-        config = function()
-            require("mini.starter").setup()
-        end,
-    },
+    -- {
+    --     "echasnovski/mini.starter",
+    --     version = "*",
+    --     lazy = false,
+    --     config = function()
+    --         require("mini.starter").setup()
+    --     end,
+    -- },
     {
         "vim-jp/vimdoc-ja",
         lazy = true,
@@ -82,31 +82,31 @@ local plugins = {
             "CommentBlock",
         },
     },
-    {
-        "hrsh7th/nvim-insx",
-        event = "InsertEnter",
-        config = function()
-            local insx = require("insx")
+    -- {
+    --     "hrsh7th/nvim-insx",
+    --     event = "InsertEnter",
+    --     config = function()
+    --         local insx = require("insx")
 
-            insx.add("*", {
-                enabled = function(ctx)
-                    return ctx.match([=[\/\*\%#]=])
-                end,
-                action = function(ctx)
-                    -- 初期:/*|
+    --         insx.add("*", {
+    --             enabled = function(ctx)
+    --                 return ctx.match([=[\/\*\%#]=])
+    --             end,
+    --             action = function(ctx)
+    --                 -- 初期:/*|
 
-                    -- ① :/**|
-                    ctx.send("*")
-                    -- 位置を保存
-                    local row, col = ctx.row(), ctx.col()
-                    -- ② :/** */|
-                    ctx.send("<space>*/")
-                    -- ③ :/**| */
-                    ctx.move(row, col)
-                end,
-            })
-        end,
-    },
+    --                 -- ① :/**|
+    --                 ctx.send("*")
+    --                 -- 位置を保存
+    --                 local row, col = ctx.row(), ctx.col()
+    --                 -- ② :/** */|
+    --                 ctx.send("<space>*/")
+    --                 -- ③ :/**| */
+    --                 ctx.move(row, col)
+    --             end,
+    --         })
+    --     end,
+    -- },
     {
         "j-hui/fidget.nvim",
         tag = "legacy",
@@ -265,6 +265,7 @@ local plugins = {
         "windwp/nvim-ts-autotag",
         ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
         config = true,
+    },
     -- {
     --     "mhartington/formatter.nvim",
     --     cmd = {
@@ -309,38 +310,37 @@ local plugins = {
     --             },
     --         })
     --     end,
-    },
-    {
-        "stevearc/conform.nvim",
-        keys = {
-            { "<space>f", mode = "n" },
-        },
-        config = function()
-            require("conform").setup({
-                formatters_by_ft = {
-                    astro = { { "prettierd", "prettier" } },
-                    css = { { "prettierd", "prettier" } },
-                    html = { { "prettierd", "prettier" } },
-                    javascript = { { "biome", "prettierd", "prettier" } },
-                    javascriptreact = { { "biome", "prettierd", "prettier" } },
-                    json = { { "biome", "prettierd", "prettier" } },
-                    lua = { "stylua" },
-                    scss = { { "prettierd", "prettier" } },
-                    typescript = { { "biome", "prettierd", "prettier" } },
-                    typescriptreact = { { "biome", "prettierd", "prettier" } },
-                    yaml = { "yamlfmt" },
-                    rust = { "rustfmt" },
-                    ["_"] = { "trim_whitespace" },
-                },
-            })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = "*",
-                callback = function(args)
-                    require("conform").format({ bufnr = args.buf })
-                end,
-            })
-        end,
-    },
+    -- {
+    --     "stevearc/conform.nvim",
+    --     keys = {
+    --         { "<space>f", mode = "n" },
+    --     },
+    --     config = function()
+    --         require("conform").setup({
+    --             formatters_by_ft = {
+    --                 astro = { { "prettierd", "prettier" } },
+    --                 css = { { "prettierd", "prettier" } },
+    --                 html = { { "prettierd", "prettier" } },
+    --                 javascript = { { "biome", "prettierd", "prettier" } },
+    --                 javascriptreact = { { "biome", "prettierd", "prettier" } },
+    --                 json = { { "biome", "prettierd", "prettier" } },
+    --                 lua = { "stylua" },
+    --                 scss = { { "prettierd", "prettier" } },
+    --                 typescript = { { "biome", "prettierd", "prettier" } },
+    --                 typescriptreact = { { "biome", "prettierd", "prettier" } },
+    --                 yaml = { "yamlfmt" },
+    --                 rust = { "rustfmt" },
+    --                 ["_"] = { "trim_whitespace" },
+    --             },
+    --         })
+    --         vim.api.nvim_create_autocmd("BufWritePre", {
+    --             pattern = "*",
+    --             callback = function(args)
+    --                 require("conform").format({ bufnr = args.buf })
+    --             end,
+    --         })
+    --     end,
+    -- },
     {
         "github/copilot.vim",
         cmd = "Copilot",

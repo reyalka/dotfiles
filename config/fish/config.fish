@@ -16,6 +16,7 @@ set -Ux EDITOR /bin/nvim
 set -Ux BUN_INSTALL "$HOME/.bun"
 set -Ux GOPATH $HOME/.go
 set -Ux AQUA_GLOBAL_CONFIG ~/.config/aqua/aqua.yaml
+set -Ux GPG_TTY (tty)
 
 # path
 fish_add_path $HOME/.cargo/bin
