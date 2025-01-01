@@ -3,7 +3,7 @@ local set = vim.keymap.set
 set("i", "jk", "<esc>")
 set({ "n", "i", "v" }, "<c-s>", "<cmd>w<cr>", { desc = "Save file" })
 set("n", "<Space>", "<NOP>")
-set({ "i", "v" }, "<esc>", "<esc><cmd>w<cr>")
+-- set({ "i", "v" }, "<esc>", "<esc><cmd>w<cr>")
 set({ "n", "v" }, "gy", '"+y')
 set({ "n", "v" }, "gp", '"+p')
 
@@ -12,13 +12,12 @@ set("n", "<space>e", "<cmd>Copilot enable<cr>")
 set("n", "<space>d", "<cmd>Copilot disable<cr>")
 set("n", "<space>cs", "<cmd>Copilot status<cr>")
 
--- telescope keymap
-set("n", "<space><space>", "<cmd>Telescope find_files<cr>")
-set("n", "<space>tg", "<cmd>Telescope live_grep<cr>")
-set("n", "<space>tt", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
-set("n", "<space>tb", "<cmd>Telescope file_browser<cr>")
-set("n", "<space>tf", "<cmd>Telescope frecency<cr>")
-
+-- -- telescope keymap
+-- set("n", "<space><space>", "<cmd>Telescope find_files<cr>")
+-- set("n", "<space>tg", "<cmd>Telescope live_grep<cr>")
+-- set("n", "<space>tt", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+-- set("n", "<space>tb", "<cmd>Telescope file_browser<cr>")
+-- set("n", "<space>tf", "<cmd>Telescope frecency<cr>")
 -- translate
 set("x", "<space>tr", "<cmd>Translate ja<CR>")
 
@@ -54,17 +53,6 @@ set("n", "<Space>o", "<cmd>lua require('oil').open_float()<CR>", { desc = "Open 
 
 -- Lazy
 set("n", "<Space>l", "<cmd>Lazy<CR>")
-
--- --formatter
--- set("n", "<Space>f", "<cmd>FormatWrite<CR>", { desc = "Format and save file" })
-
--- conform
-set(
-    "n",
-    "<Space>f",
-    "<cmd>lua require('conform').format { async = true, lsp_fallback = true }<CR><cmd>w<CR>",
-    { desc = "Format and save file" }
-)
 
 --jaq-nvim
 set("n", "<Space>j", "<cmd>Jaq<CR>")
