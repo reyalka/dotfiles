@@ -23,7 +23,7 @@ return {
                 "lua_ls",
                 "pyright",
                 "rust_analyzer",
-                "tsserver",
+                "ts_ls",
             },
         })
 
@@ -80,11 +80,9 @@ return {
                     },
                 })
             end,
-            ["tsserver"] = function()
-                lspconfig.tsserver.setup({
-                    on_attach = function(client)
-                        client.resolved_capabilities.document_formatting = false
-                    end,
+            ["ts_ls"] = function()
+                lspconfig.ts_ls.setup({
+                    on_attach = function(client) client.resolved_capabilities.document_formatting = false end,
                 })
             end,
             ["tailwindcss"] = function()
@@ -123,7 +121,7 @@ return {
                 set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
                 set("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>")
                 set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
-                set("n", "<Space>n", "<cmd>Lspsaga rename<CR>")
+                set("n", "<F2>", "<cmd>Lspsaga rename<CR>")
                 set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
                 set("n", "g@", "<cmd>lua vim.diagnostic.open_float()<CR>")
                 set("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
