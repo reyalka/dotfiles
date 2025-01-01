@@ -1,0 +1,11 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+            "github>aquaproj/aqua-renovate-config#2.6.0"
+    ],
+    "automerge": true,
+    "labels": [
+        "renovate",
+        "dependencies"
+    ]
+}
