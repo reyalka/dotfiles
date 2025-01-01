@@ -3,7 +3,7 @@ pre-commit:
   commands:
     stylua:
       glob: "*.lua"
-      run: stylua {staged_files}
+      run: stylua {staged_files} -f ./stylua.toml
     fish_indenet:
       glob: "*.fish"
       run: fish_indent -w {staged_files}

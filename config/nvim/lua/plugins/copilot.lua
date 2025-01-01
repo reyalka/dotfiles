@@ -1,7 +1,7 @@
 return {
     "github/copilot.vim",
     cmd = "Copilot",
-    event = "LspAttach",
+    event = { "LspAttach", "BufReadPre", "BufNewFile" },
     config = function()
         local CopilotGroup = vim.api.nvim_create_augroup("MyCopilotController", { clear = true })
 
