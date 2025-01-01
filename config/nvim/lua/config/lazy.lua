@@ -21,5 +21,23 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
     spec = {
         { import = "pluginsmulti" },
+        -- { import = "config.plugins" },
+    },
+    performance = {
+        cache = {
+            enabled = true,
+        },
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                -- "matchit",
+                -- "matchparen",
+                "netrwPlugin",
+                -- "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
+            },
+        },
     },
 })
