@@ -7,9 +7,7 @@ return {
         require("insx.preset.standard").setup()
 
         insx.add("*", {
-            enabled = function(ctx)
-                return ctx.match([=[\/\*\%#]=])
-            end,
+            enabled = function(ctx) return ctx.match([=[\/\*\%#]=]) end,
             action = function(ctx)
                 -- 初期:/*|
 

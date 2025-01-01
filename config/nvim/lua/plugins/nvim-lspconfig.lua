@@ -54,14 +54,15 @@ return {
             return paths
         end
 
+        local function is_node_dir() return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd()) end
+
         require("mason-lspconfig").setup_handlers({
             function(server_name)
-                -- TODO: fix after cmp
-                -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
-                -- capabilities.textDocument.completion.completionItem.snippetSupport = true
-                -- lspconfig[server_name].setup({
-                --     capabilities = capabilities,
-                -- })
+                local capabilities = require("cmp_nvim_lsp").default_capabilities()
+                capabilities.textDocument.completion.completionItem.snippetSupport = true
+                lspconfig[server_name].setup({
+                    capabilities = capabilities,
+                })
             end,
             ["lua_ls"] = function()
                 lspconfig.lua_ls.setup({
@@ -82,7 +83,16 @@ return {
             end,
             ["ts_ls"] = function()
                 lspconfig.ts_ls.setup({
-                    on_attach = function(client) client.resolved_capabilities.document_formatting = false end,
+                    on_attach = function(client)
+                        if not is_node_dir() then client.stop(true) end
+                    end,
+                })
+            end,
+            ["deno_ls"] = function()
+                lspconfig.deno_ls.setup({
+                    on_attach = function(client)
+                        if is_node_dir() then client.stop(true) end
+                    end,
                 })
             end,
             ["tailwindcss"] = function()
@@ -131,7 +141,7 @@ return {
         vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             virtual_text = {
                 format = function(diagnostic)
-                    return string.format("%s [%s : \n%s]", diagnostic.message, diagnostic.source, diagnostic.code)
+                    return string.format("%s [%s:%s]", diagnostic.message, diagnostic.source, diagnostic.code)
                 end,
                 update_in_insert = true,
             },

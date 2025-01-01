@@ -16,9 +16,7 @@ return {
         local lspkind = require("lspkind")
         cmp.setup({
             snippet = {
-                expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
-                end,
+                expand = function(args) require("luasnip").lsp_expand(args.body) end,
             },
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },
