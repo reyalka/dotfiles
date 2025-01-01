@@ -4,9 +4,7 @@ return {
     priority = 1000,
     config = function()
         require("nekonight").setup({
-            on_colors = function(colors)
-                colors.bg_float = colors.bg
-            end,
+            on_colors = function(colors) colors.bg_float = colors.bg end,
         })
 
         vim.cmd("colorscheme nekonight")
