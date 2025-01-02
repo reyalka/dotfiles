@@ -48,6 +48,8 @@ abbr -a -- mt mate-terminal
 abbr -a -- lg lazygit
 abbr -a -- ss starship
 abbr -a -- zl zellij
+abbr -a -- fcp fish_clipboard_copy
+abbr -a -- fpt fish_clipboard_paste
 
 alias .. __bd
 alias . dot
