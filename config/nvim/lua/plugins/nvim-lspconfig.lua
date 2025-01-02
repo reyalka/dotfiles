@@ -139,12 +139,30 @@ return {
                 set("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
             end,
         })
+
         vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             virtual_text = {
                 format = function(diagnostic)
-                    return string.format("%s [%s:%s]", diagnostic.message, diagnostic.source, diagnostic.code)
+                    if diagnostic.code then
+                        return string.format("%s [%s](%s)", diagnostic.message, diagnostic.source, diagnostic.code)
+                    end
+                    return string.format("%s [%s]", diagnostic.message, diagnostic.source)
                 end,
                 update_in_insert = true,
+            },
+        })
+
+        vim.diagnostic.config({
+            severity_sort = true,
+            float = {
+                title = "Diagnostics",
+                border = "solid",
+                format = function(diagnostic)
+                    if diagnostic.code then
+                        return string.format("%s [%s](%s)", diagnostic.message, diagnostic.source, diagnostic.code)
+                    end
+                    return string.format("%s [%s]", diagnostic.message, diagnostic.source)
+                end,
             },
         })
     end,
