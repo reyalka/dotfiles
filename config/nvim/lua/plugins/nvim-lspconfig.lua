@@ -75,7 +75,7 @@ return {
                                 path = { "?.lua", "?/init.lua" },
                             },
                             workspace = {
-                                library = library({ "lazy.nvim", "nvim-insx" }),
+                                library = library({ "lazy.nvim", "nvim-cmp" }),
                                 checkThirdParty = "Disable",
                             },
                         },
