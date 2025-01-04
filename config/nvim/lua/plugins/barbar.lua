@@ -16,8 +16,8 @@ return
         { "<M-0>", "<cmd>BufferLast<CR>", mode = "n" },
         { "<M->>", "<cmd>BufferMoveNext<CR>", mode = "n" },
         { "<M-<>", "<cmd>BufferMovePrevious<CR>", mode = "n" },
-        { "<M-,>", "<cmd>BufferNext<CR>", mode = "n" },
-        { "<M-.>", "<cmd>BufferPrevious<CR>", mode = "n" },
+        { "<M-.>", "<cmd>BufferNext<CR>", mode = "n" },
+        { "<M-,>", "<cmd>BufferPrevious<CR>", mode = "n" },
     },
     opts = {},
 }
