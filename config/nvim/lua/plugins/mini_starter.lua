@@ -13,6 +13,8 @@ return {
                 { name = "Dev",       path = "~/dev" },
                 { name = "Temporary", path = "~/tmp" },
                 { name = "Dotfiles",  path = "~/dotfiles" },
+                { name = "Neovim",    path = "~/dotfiles/config/nvim" },
+                { name = "Fish",      path = "~/dotfiles/config/fish/" }
             }
 
             local items = {}
