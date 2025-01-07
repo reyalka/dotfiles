@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     "github/copilot.vim",
     cmd = "Copilot",

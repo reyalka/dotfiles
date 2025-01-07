@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     "shellRaining/hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },

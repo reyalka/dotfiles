@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {

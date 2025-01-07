@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     "stevearc/conform.nvim",
     keys = {

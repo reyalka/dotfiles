@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     "stevearc/oil.nvim",
     cmd = "Oil",

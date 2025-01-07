@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     "nvim-lualine/lualine.nvim",
     event = "UIEnter",

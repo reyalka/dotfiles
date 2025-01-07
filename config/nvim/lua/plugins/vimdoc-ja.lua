@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     "vim-jp/vimdoc-ja",
     keys = {

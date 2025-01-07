@@ -1,3 +1,4 @@
+---@class LazySpec
 return {
     "hrsh7th/nvim-insx",
     event = "InsertEnter",
