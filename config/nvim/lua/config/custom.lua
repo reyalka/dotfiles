@@ -7,6 +7,18 @@ vim.api.nvim_create_user_command("Format", function(args)
             ["end"] = { args.line2, end_line:len() },
         }
     end
-    require("conform").format({ async = true, lsp_format = "fallback", range = range })
+    require("conform").format({ async = true, lsp_fallback = true, range = range })
     print("Formatted")
 end, { range = true, desc = "Format current buffer" })
+
+vim.keymap.set("n", "gF", function()
+    local cfile = vim.fn.expand("<cfile>")
+
+    if cfile:match("^https?://") then
+        vim.ui.open(cfile)
+    elseif cfile:match("^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$") then
+        vim.ui.open(("https://github.com/%s"):format(cfile))
+    else
+        vim.cmd("normal! gF")
+    end
+end)
