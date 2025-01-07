@@ -11,7 +11,7 @@ vim.api.nvim_create_user_command("Format", function(args)
     print("Formatted")
 end, { range = true, desc = "Format current buffer" })
 
-vim.keymap.set("n", "gF", function()
+vim.keymap.set("n", "gf", function()
     local cfile = vim.fn.expand("<cfile>")
 
     if cfile:match("^https?://") then
@@ -19,6 +19,6 @@ vim.keymap.set("n", "gF", function()
     elseif cfile:match("^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$") then
         vim.ui.open(("https://github.com/%s"):format(cfile))
     else
-        vim.cmd("normal! gF")
+        vim.cmd("normal! gf")
     end
 end)

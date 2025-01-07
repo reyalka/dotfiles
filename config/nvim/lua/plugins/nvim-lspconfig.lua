@@ -55,9 +55,7 @@ return {
             return paths
         end
 
-        local function is_node_dir()
-            return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd())
-        end
+        local function is_node_dir() return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd()) end
 
         require("mason-lspconfig").setup_handlers({
             function(server_name)
@@ -128,7 +126,7 @@ return {
             callback = function(_)
                 local set = vim.keymap.set
                 set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-                set("n", "gf", "<cmd>Lspsaga finder<CR>")
+                set("n", "gF", "<cmd>Lspsaga finder<CR>")
                 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
                 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
                 set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")

@@ -6,6 +6,7 @@ set("n", "<Space>", "<NOP>")
 -- set({ "i", "v" }, "<esc>", "<esc><cmd>w<cr>")
 set({ "n", "v" }, "gy", '"+y')
 set({ "n", "v" }, "gp", '"+p')
+set("n", "gf", "gF")
 
 -- Copilot
 set("n", "<space>e", "<cmd>Copilot enable<cr>")
