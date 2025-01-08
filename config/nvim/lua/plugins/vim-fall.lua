@@ -6,7 +6,10 @@ return {
     },
     keys = {
         { "<space><space>", "<cmd>Fall file<cr>", mode = "n" },
+        { "<space>.", "<cmd>Fall file:all", mode = "n" },
         { "<space>g", "<cmd>Fall rg<cr>", mode = "n" },
+        { "<space>/", "<cmd>Fall line<cr>", mode = "n" },
+        { "<M-space>", "<cmd>Fall buffer<cr>", mode = "n" },
     },
     cmd = "Fall",
     config = function()
