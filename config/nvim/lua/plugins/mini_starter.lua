@@ -3,19 +3,18 @@ return {
     "echasnovski/mini.starter",
     version = "*",
     lazy = false,
-    dir = "~/dev/mini.starter",
     config = function()
         local starter = require("mini.starter")
 
         local function pinned_dirs()
             local section = "Pinned Directories"
             local paths = {
-                { name = "Home", path = "~/" },
-                { name = "Dev", path = "~/dev" },
+                { name = "Home",      path = "~/" },
+                { name = "Dev",       path = "~/dev" },
                 { name = "Temporary", path = "~/tmp" },
-                { name = "Dotfiles", path = "~/dotfiles" },
-                { name = "Neovim", path = "~/dotfiles/config/nvim" },
-                { name = "Fish", path = "~/dotfiles/config/fish/" },
+                { name = "Dotfiles",  path = "~/dotfiles" },
+                { name = "Neovim",    path = "~/dotfiles/config/nvim" },
+                { name = "Fish",      path = "~/dotfiles/config/fish/" },
             }
 
             local items = {}
@@ -33,21 +32,25 @@ return {
             return items
         end
 
-        local my_items = {
-            starter.sections.builtin_actions(),
+        local items = {
             pinned_dirs(),
             starter.sections.recent_files(10),
+            starter.sections.builtin_actions(),
         }
 
-        local function header() return string.format("Neovim %s", vim.v.version) end
+        local function header()
+            return string.format("Neovim %s",
+                vim.fn.execute("version", "silent!"):match("NVIM (v[%d%.]+)")
+            )
+        end
 
         starter.setup({
             evaluate_single = true,
-            items = my_items,
+            items = items,
             header = header,
             content_hooks = {
                 starter.gen_hook.adding_bullet(),
-                starter.gen_hook.indexing({ exclude = { "Pinned Directories" } }),
+                starter.gen_hook.indexing("all", { "Recent files", "Builtin actions" }),
                 starter.gen_hook.padding(3, 2),
                 starter.gen_hook.aligning("center", "center"),
             },
