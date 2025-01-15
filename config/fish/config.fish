@@ -32,24 +32,24 @@ fish_add_path (set -q AQUA_ROOT_DIR; and echo $AQUA_ROOT_DIR; or set -q XDG_DATA
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 abbr -a -- cl clear
-abbr -a -- t touch
-abbr -a -- tr tree
-abbr -a -- mr mkdir
-abbr -a -- px 'pnpm dlx'
-abbr -a -- yx 'yarn dlx'
-abbr -a -- vrc 'nvim /home/reyalka/.config/fish/config.fish'
-abbr -a -- p pkill
-abbr -a -- q exit
-abbr -a -- nv nvim
-abbr -a -- nvi nvim
-abbr -a -- nivm nvim
-abbr -a -- nvim-startuptime 'vim-startuptime --vimpath nvim'
-abbr -a -- mt mate-terminal
-abbr -a -- lg lazygit
-abbr -a -- ss starship
-abbr -a -- zl zellij
 abbr -a -- fcp fish_clipboard_copy
 abbr -a -- fpt fish_clipboard_paste
+abbr -a -- lg lazygit
+abbr -a -- mr mkdir
+abbr -a -- mt mate-terminal
+abbr -a -- nivm nvim
+abbr -a -- nv nvim
+abbr -a -- nvi nvim
+abbr -a -- nvim-startuptime 'vim-startuptime --vimpath nvim'
+abbr -a -- p pnpm
+abbr -a -- px 'pnpm dlx'
+abbr -a -- q exit
+abbr -a -- ss starship
+abbr -a -- t touch
+abbr -a -- tr tree
+abbr -a -- vrc 'nvim /home/reyalka/.config/fish/config.fish'
+abbr -a -- yx 'yarn dlx'
+abbr -a -- zl zellij
 
 alias .. __bd
 alias . dot
