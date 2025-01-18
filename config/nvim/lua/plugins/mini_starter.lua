@@ -9,12 +9,12 @@ return {
         local function pinned_dirs()
             local section = "Pinned Directories"
             local paths = {
-                { name = "Home",      path = "~/" },
-                { name = "Dev",       path = "~/dev" },
+                { name = "Home", path = "~/" },
+                { name = "Dev", path = "~/dev" },
                 { name = "Temporary", path = "~/tmp" },
-                { name = "Dotfiles",  path = "~/dotfiles" },
-                { name = "Neovim",    path = "~/dotfiles/config/nvim" },
-                { name = "Fish",      path = "~/dotfiles/config/fish/" },
+                { name = "Dotfiles", path = "~/dotfiles" },
+                { name = "Neovim", path = "~/dotfiles/config/nvim" },
+                { name = "Fish", path = "~/dotfiles/config/fish/" },
             }
 
             local items = {}
@@ -39,9 +39,7 @@ return {
         }
 
         local function header()
-            return string.format("Neovim %s",
-                vim.fn.execute("version", "silent!"):match("NVIM (v[%d%.]+)")
-            )
+            return string.format("Neovim %s", vim.fn.execute("version", "silent!"):match("NVIM (v[%d%.]+)"))
         end
 
         starter.setup({
