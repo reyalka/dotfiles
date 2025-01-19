@@ -56,7 +56,9 @@ return {
             return paths
         end
 
-        local function is_node_dir() return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd()) end
+        local function is_node_dir()
+            return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd())
+        end
 
         require("mason-lspconfig").setup_handlers({
             function(server_name)
@@ -86,6 +88,7 @@ return {
             ["ts_ls"] = function()
                 lspconfig.ts_ls.setup({
                     on_attach = function(client)
+                        print(is_node_dir())
                         if not is_node_dir() then client.stop(true) end
                     end,
                 })
@@ -93,6 +96,7 @@ return {
             ["denols"] = function()
                 lspconfig.denols.setup({
                     on_attach = function(client)
+                        print(is_node_dir())
                         if is_node_dir() then client.stop(true) end
                     end,
                 })

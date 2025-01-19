@@ -12,6 +12,7 @@ return {
         { "<M-space>", "<cmd>Fall buffer<cr>", mode = "n" },
     },
     cmd = "Fall",
+    event = "VimEnter",
     config = function()
         local FallPicker = vim.api.nvim_create_augroup("FallPicker", { clear = true })
 
