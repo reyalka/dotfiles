@@ -1,6 +1,3 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
 # pnpm
 set -gx PNPM_HOME "/home/reyalka/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
@@ -102,6 +99,10 @@ function dot
     else
         source $argv
     end
+end
+
+function toHex
+    echo (math --base 16 $argv[1] | string sub -s 3)
 end
 
 # tabtab source for packages
