@@ -3,7 +3,7 @@ return {
     "stevearc/aerial.nvim",
     cmd = { "Aerial", "AerialOpenAllBuffers", "AerialCloseAllBuffers", "AerialToggle" },
     keys = {
-        { "<space>a", "<cmd>AerialToggle!<CR>", mode = "n" }
+        { "<space>a", "<cmd>AerialToggle!<CR>", mode = "n" },
     },
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
@@ -13,6 +13,6 @@ return {
         backends = { "lsp", "treesitter", "markdown", "asciidoc", "man" },
         layout = {
             default_direction = "prefer_left",
-        }
+        },
     },
 }
