@@ -31,6 +31,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 abbr -a -- cl clear
 abbr -a -- fcp fish_clipboard_copy
 abbr -a -- fpt fish_clipboard_paste
+abbr -a -- g git
 abbr -a -- lg lazygit
 abbr -a -- mr mkdir
 abbr -a -- mt mate-terminal
