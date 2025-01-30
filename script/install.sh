@@ -2,11 +2,12 @@
 git clone https://github.com/reyalka/dotfiles.git ~/dotfiles/
 
 # link
-ln -s ~/dotfiles/stylua.toml ~/.config/stylua.toml
-ln -s ~/dotfiles/config/nvim ~/.config/nvim
-ln -s ~/dotfiles/config/fish ~/.config/fish
-ln -s ~/dotfiles/config/wezterm/ ~/.config/wezterm
-ln -s ~/dotfiles/config/aqua/ ~/.config/aqua/
-ln -s ~/dotfiles/config/zellij/ ~/.config/zellij/
-ln -s ~/dotfiles/config/starship.toml ~/.config/starship.toml
+ln -svf ~/dotfiles/stylua.toml ~/.config/
+ln -svf ~/dotfiles/config/nvim ~/.config/
+ln -svf ~/dotfiles/config/fish ~/.config/
+ln -svf ~/dotfiles/config/wezterm/ ~/.config/
+ln -svf ~/dotfiles/config/aqua/ ~/.config/
+ln -svf ~/dotfiles/config/zellij/ ~/.config/
+ln -svf ~/dotfiles/config/starship.toml ~/.config/
+ln -svf ~/dotfiles/config/.zshrc ~/
 
