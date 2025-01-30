@@ -9,5 +9,3 @@
     side-by-side = true
     dark = true      # or light = true, or omit for auto-detection
 
-[merge]
-    conflictstyle = zdiff3
