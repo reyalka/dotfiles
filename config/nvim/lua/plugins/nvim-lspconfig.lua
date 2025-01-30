@@ -56,9 +56,7 @@ return {
             return paths
         end
 
-        local function is_node_dir()
-            return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd())
-        end
+        local function is_node_dir() return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd()) end
 
         require("mason-lspconfig").setup_handlers({
             function(server_name)
