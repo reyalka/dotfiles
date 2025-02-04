@@ -16,7 +16,7 @@ vim.keymap.set("n", "gf", function()
 
     if cfile:match("^https?://") then
         vim.ui.open(cfile)
-    elseif cfile:match("^[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+$") then
+    elseif cfile:match("^[a-zA-Z0-9_-]+/[a-zA-Z0-9_.-]+$") then
         vim.ui.open(("https://github.com/%s"):format(cfile))
     else
         vim.cmd("normal! gf")
