@@ -2,6 +2,7 @@
 return {
     "stevearc/oil.nvim",
     cmd = "Oil",
+    keys = { "n", "<space>o", function() require("oil").open_float() end },
     config = function()
         require("oil").setup({
             view_options = {
