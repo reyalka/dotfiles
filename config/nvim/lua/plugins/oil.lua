@@ -3,7 +3,7 @@ return {
     "stevearc/oil.nvim",
     cmd = "Oil",
     keys = {
-        { "<space>o", function() require("oil").open_float() end, mode = "n" }
+        { "<space>o", function() require("oil").open_float() end, mode = "n" },
     },
     config = function()
         require("oil").setup({
