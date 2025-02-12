@@ -2,7 +2,7 @@
 return {
     "stevearc/conform.nvim",
     keys = {
-        { "<space>f", "<cmd>Format<cr>", mode = "n" },
+        { "<space>f", "<cmd>Format<cr>", mode = "n", desc = "Format" },
     },
     opts = {
         formatters_by_ft = {
@@ -12,12 +12,13 @@ return {
             javascript = { "biome", "prettierd", "prettier" },
             javascriptreact = { "biome", "prettierd", "prettier" },
             json = { "biome", "prettierd", "prettier" },
+            lua = { "stylua" },
+            nix = { "nixfmt" },
+            rust = { "rustfmt" },
             scss = { "prettierd", "prettier" },
             typescript = { "biome", "prettierd", "prettier" },
             typescriptreact = { "biome", "prettierd", "prettier" },
-            lua = { "stylua" },
             yaml = { "yamlfmt" },
-            rust = { "rustfmt" },
             ["_"] = { "trim_whitespace" },
         },
         format_on_save = {
