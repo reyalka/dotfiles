@@ -13,7 +13,7 @@ set -Ux EDITOR /bin/nvim
 set -Ux BUN_INSTALL "$HOME/.bun"
 set -Ux GOPATH $HOME/.go
 set -Ux AQUA_GLOBAL_CONFIG ~/.config/aqua/aqua.yaml
-set -Ux GPG_TTY (tty)
+export GPG_TTY=$(tty)
 
 # path
 fish_add_path $HOME/.cargo/bin
@@ -36,17 +36,18 @@ abbr -a -- lg lazygit
 abbr -a -- mr mkdir
 abbr -a -- mt mate-terminal
 abbr -a -- nivm nvim
+abbr -a -- pid "pnpm i --save-exact --save-dev"
 abbr -a -- nv nvim
 abbr -a -- nvi nvim
-abbr -a -- nvim-startuptime 'vim-startuptime --vimpath nvim'
+abbr -a -- nvim-startuptime "vim-startuptime --vimpath nvim"
 abbr -a -- p pnpm
-abbr -a -- px 'pnpm dlx'
+abbr -a -- px "pnpm dlx"
 abbr -a -- q exit
 abbr -a -- ss starship
 abbr -a -- t touch
 abbr -a -- tr tree
-abbr -a -- vrc 'nvim /home/reyalka/.config/fish/config.fish'
-abbr -a -- yx 'yarn dlx'
+abbr -a -- vrc "nvim /home/reyalka/.config/fish/config.fish"
+abbr -a -- yx "yarn dlx"
 abbr -a -- zl zellij
 
 alias .. __bd
@@ -55,8 +56,8 @@ alias ll "eza -alT --icons -L 1"
 alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
 
 function ide
-    set -l session_name (string split '/' (pwd))[-1]
-    set -l sessions (string split '\n' (zellij list-sessions --short -no-formatting 2>/dev/null))
+    set -l session_name (string split "/" (pwd))[-1]
+    set -l sessions (string split "\n" (zellij list-sessions --short -no-formatting 2>/dev/null))
     zellij --layout ide --session $session_name 2>/dev/null \
         || zellij attach $session_name
 end
