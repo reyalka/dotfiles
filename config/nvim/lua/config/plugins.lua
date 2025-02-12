@@ -54,9 +54,7 @@ local plugins = {
         cmd = {
             "Neotree",
         },
-        config = function()
-            require("neo-tree").setup()
-        end,
+        config = function() require("neo-tree").setup() end,
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -66,15 +64,11 @@ local plugins = {
             colorscheme = "everforest",
             icons_enabled = true,
         },
-        config = function()
-            require("lualine").setup()
-        end,
+        config = function() require("lualine").setup() end,
     },
     {
         "terrortylor/nvim-comment",
-        config = function()
-            require("nvim_comment").setup()
-        end,
+        config = function() require("nvim_comment").setup() end,
         event = { "BufRead", "BufNewFile" },
         cmd = {
             "CommentToggle",
@@ -202,9 +196,7 @@ local plugins = {
                 end,
                 ["tsserver"] = function()
                     lspconfig.tsserver.setup({
-                        on_attach = function(client)
-                            client.resolved_capabilities.document_formatting = false
-                        end,
+                        on_attach = function(client) client.resolved_capabilities.document_formatting = false end,
                     })
                 end,
                 ["tailwindcss"] = function()
@@ -378,9 +370,7 @@ local plugins = {
             local lspkind = require("lspkind")
             cmp.setup({
                 snippet = {
-                    expand = function(args)
-                        require("luasnip").lsp_expand(args.body)
-                    end,
+                    expand = function(args) require("luasnip").lsp_expand(args.body) end,
                 },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
@@ -491,23 +481,17 @@ local plugins = {
     {
         "akinsho/bufferline.nvim",
         event = { "BufRead", "BufNewFile" },
-        config = function()
-            require("bufferline").setup()
-        end,
+        config = function() require("bufferline").setup() end,
     },
     {
         "yorickpeterse/nvim-window",
         event = { "BufRead", "BufNewFile" },
-        config = function()
-            require("nvim-window").setup({})
-        end,
+        config = function() require("nvim-window").setup({}) end,
     },
     {
         "brenoprata10/nvim-highlight-colors",
         cmd = { "HighlightColorsOn", "HighlightColorsOff", "HighlightColorsToggle" },
-        config = function()
-            require("nvim-highlight-colors").setup()
-        end,
+        config = function() require("nvim-highlight-colors").setup() end,
     },
     -- {
     --     "vim-skk/skkeleton",
@@ -531,16 +515,12 @@ local plugins = {
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufRead", "BufNewFile" },
-        config = function()
-            require("gitsigns").setup()
-        end,
+        config = function() require("gitsigns").setup() end,
     },
     {
         "dstein64/vim-startuptime",
         cmd = "StartupTime",
-        init = function()
-            vim.g.startuptime_tries = 10
-        end,
+        init = function() vim.g.startuptime_tries = 10 end,
     },
     {
         "folke/noice.nvim",
@@ -576,9 +556,7 @@ local plugins = {
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons",
         },
-        config = function()
-            require("aerial").setup()
-        end,
+        config = function() require("aerial").setup() end,
     },
     {
         "folke/which-key.nvim",
@@ -592,9 +570,7 @@ local plugins = {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
-        build = function()
-            vim.fn["mkdp#util#install"]()
-        end,
+        build = function() vim.fn["mkdp#util#install"]() end,
     },
     {
         "thinca/vim-scouter",
