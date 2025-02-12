@@ -1,3 +1,5 @@
+default_layout "compact"
+
 layout {
     pane size=1 borderless=true {
         plugin location="zellij:tab-bar"
