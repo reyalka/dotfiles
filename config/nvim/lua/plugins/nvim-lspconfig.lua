@@ -18,6 +18,7 @@ return {
                 "bashls",
                 "biome",
                 "cssls",
+                "denols",
                 "emmet_language_server",
                 "html",
                 "jsonls",
@@ -25,6 +26,7 @@ return {
                 "nil_ls",
                 "pyright",
                 "rust_analyzer",
+                "tailwindcss",
                 "ts_ls",
             },
         })
@@ -76,7 +78,11 @@ return {
                                 path = { "?.lua", "?/init.lua" },
                             },
                             workspace = {
-                                library = library({ "lazy.nvim", "nvim-cmp", "mini.starter" }),
+                                library = library({
+                                    "lazy.nvim",
+                                    -- "nvim-cmp",
+                                    -- "nvim-insx",
+                                }),
                                 checkThirdParty = "Disable",
                             },
                         },
@@ -113,11 +119,12 @@ return {
             ["emmet_language_server"] = function()
                 lspconfig.emmet_language_server.setup({
                     filetypes = {
-                        "html",
+                        "astro",
                         "css",
-                        "scss",
+                        "html",
                         "javascript",
                         "javascriptreact",
+                        "scss",
                         "typescript",
                         "typescriptreact",
                     },
@@ -130,16 +137,16 @@ return {
                 local set = vim.keymap.set
                 set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
                 set("n", "gF", "<cmd>Lspsaga finder<CR>")
-                set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-                set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-                set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-                set("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-                set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+                set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
                 set("n", "<F2>", "<cmd>Lspsaga rename<CR>")
-                set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-                set("n", "g@", "<cmd>lua vim.diagnostic.open_float()<CR>")
-                set("n", "g]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-                set("n", "g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+                set("n", "ga", "<cmd>Lspsaga code_action<CR>")
+                set("n", "g@", "<cmd>Lspsaga show_line_diagnostics<CR>")
+                set("n", "<leader>a", "<cmd>Lspsaga outline<CR>")
+                set("n", "gD", vim.lsp.buf.definition)
+                set("n", "gI", vim.lsp.buf.implementation)
+                set("n", "gt", vim.lsp.buf.type_definition)
+                set("n", "g]", vim.diagnostic.goto_next)
+                set("n", "g[", vim.diagnostic.goto_prev)
             end,
         })
 
