@@ -16,6 +16,7 @@ return {
                 "lua",
                 "markdown",
                 "markdown_inline",
+                "kdl",
                 "scss",
                 "svelte",
                 "tsx",
