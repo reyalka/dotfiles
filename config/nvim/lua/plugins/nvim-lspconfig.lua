@@ -20,6 +20,7 @@ return {
                 "cssls",
                 "denols",
                 "emmet_language_server",
+                "gopls",
                 "html",
                 "jsonls",
                 "lua_ls",
