@@ -13,6 +13,7 @@ set -Ux EDITOR /bin/nvim
 set -Ux BUN_INSTALL "$HOME/.bun"
 set -Ux GOPATH $HOME/.go
 set -Ux AQUA_GLOBAL_CONFIG ~/.config/aqua/aqua.yaml
+set -Ux VOLTA_HOME "$HOME/.volta"
 export GPG_TTY=$(tty)
 
 # path
@@ -24,6 +25,7 @@ fish_add_path $HOME/.local/bin
 fish_add_path $BUN_INSTALL/bin
 fish_add_path $HOME/.moon/bin
 fish_add_path (set -q AQUA_ROOT_DIR; and echo $AQUA_ROOT_DIR; or set -q XDG_DATA_HOME; and echo $XDG_DATA_HOME; or echo $HOME/.local/share)/aquaproj-aqua/bin
+fish_add_path $VOLTA_HOME/bin
 
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

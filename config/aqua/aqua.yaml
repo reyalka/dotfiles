@@ -38,3 +38,4 @@ packages:
   - name: nektos/act@v0.2.71
   - name: dylanaraps/neofetch@7.1.0
   - name: dandavison/delta@0.18.2
+  - name: volta-cli/volta@v2.0.2

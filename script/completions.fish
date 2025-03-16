@@ -54,3 +54,8 @@ notify progress "Adding completions for lefthook"
 exist lefthook && lefthook completion fish >~/dotfiles/config/fish/completions/lefthook.fish \
     && notify succsess "Completions for lefthook added" \
     || notify error "Somthing went wrong while adding completions for lefthook"
+
+notify progress "Adding completions for volta"
+exist volta && volta completions fish >~/dotfiles/config/fish/completions/volta.fish \
+    && notify succsess "Completions for volta added" \
+    || notify error "Somthing went wrong while adding completions for volta"
