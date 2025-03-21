@@ -59,3 +59,8 @@ notify progress "Adding completions for volta"
 exist volta && volta completions fish >~/dotfiles/config/fish/completions/volta.fish \
     && notify succsess "Completions for volta added" \
     || notify error "Somthing went wrong while adding completions for volta"
+
+notify progress "Adding completions for just"
+exist just && just --completions fish >~/dotfiles/config/fish/completions/just.fish \
+    && notify succsess "Completions for just added" \
+    || notify error "Somthing went wrong while adding completions for just"

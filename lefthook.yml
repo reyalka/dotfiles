@@ -10,3 +10,6 @@ pre-commit:
     yamlfmt:
       glob: "*.{yml,yaml}"
       run: yamlfmt {staged_files}
+    just-fmt:
+      glob: "justfile"
+      run: just --fmt --unstable
