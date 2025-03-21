@@ -36,7 +36,7 @@ exist eza && curl https://raw.githubusercontent.com/eza-community/eza/main/compl
     || notify error "Somthing went wrong while adding completions for eza"
 
 notify progress "Adding completions for bun"
-exist bun && curl --silent https://raw.githubusercontent.com/oven-sh/bun/main/completions/bun.fish >~/dotfiles/config/fish/completions/bun.fish \
+exist bun && curl https://raw.githubusercontent.com/oven-sh/bun/main/completions/bun.fish >~/dotfiles/config/fish/completions/bun.fish \
     && notify succsess "Completions for bun added" \
     || notify error "Somthing went wrong while adding completions for bun"
 
