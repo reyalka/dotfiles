@@ -53,6 +53,11 @@ abbr -a -- vrc "nvim /home/reyalka/.config/fish/config.fish"
 abbr -a -- yx "yarn dlx"
 abbr -a -- zl zellij
 
+# aqua generate --interactive --global
+abbr -a -- aqg "aqua g -i -g"
+# aqua init --all --link
+abbr -a -- aqi "aqua i -a -l"
+
 # alias
 alias .. __bd
 alias . dot
