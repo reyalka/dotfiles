@@ -44,3 +44,4 @@ packages:
   - name: eza-community/eza@v0.20.24
   - name: ynqa/jnv@v0.5.0
   - name: casey/just@1.40.0
+  - name: hashicorp/terraform@v1.11.2
