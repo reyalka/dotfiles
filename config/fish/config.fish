@@ -30,6 +30,7 @@ fish_add_path $VOLTA_HOME/bin
 # brew settings
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# abbr
 abbr -a -- cl clear
 abbr -a -- fcp fish_clipboard_copy
 abbr -a -- fpt fish_clipboard_paste
@@ -52,12 +53,14 @@ abbr -a -- vrc "nvim /home/reyalka/.config/fish/config.fish"
 abbr -a -- yx "yarn dlx"
 abbr -a -- zl zellij
 
+# alias
 alias .. __bd
 alias . dot
 alias ll "eza -alT --icons -L 1"
 alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
 alias proot='cd $(git rev-parse --show-toplevel)'
 
+# functions
 function ide
     set -l session_name (string split "/" (pwd))[-1]
     set -l sessions (string split "\n" (zellij list-sessions --short -no-formatting 2>/dev/null))
