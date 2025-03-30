@@ -5,7 +5,7 @@ set shell := ["fish", "-c"]
 
 # show help
 @help:
-    echo "Usage: just [TASK]"
+    echo "Usage: just [RECIPE]"
     echo ""
     just --list --unsorted
 
@@ -15,8 +15,8 @@ format:
     fish_indent -w ./**/*.fish
     yamlfmt ./
 
+alias fmt := format
+
 # generate completions for fish shell
 generate-completions:
     fish ./script/completions.fish
-
-alias fmt := format
