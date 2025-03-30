@@ -118,6 +118,11 @@ function toHex
     echo (math --base 16 $argv[1] | string sub -s 3)
 end
 
+# do nothin when command not found
+function fish_command_not_found
+    echo "Command not found: $argv[1]"
+end
+
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
