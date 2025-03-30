@@ -7,16 +7,17 @@ return {
         local configs = require("nvim-treesitter.configs")
         configs.setup({
             ensure_installed = {
-                "fish",
-                "json",
                 "astro",
                 "css",
+                "fish",
                 "html",
                 "javascript",
+                "json",
+                "just",
+                "kdl",
                 "lua",
                 "markdown",
                 "markdown_inline",
-                "kdl",
                 "scss",
                 "svelte",
                 "tsx",
