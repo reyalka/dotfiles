@@ -20,3 +20,7 @@ alias fmt := format
 # generate completions for fish shell
 generate-completions:
     fish ./script/completions.fish
+
+# sync config into ~/.config
+sync:
+    bash ./script/install.sh
