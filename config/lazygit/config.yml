@@ -3,3 +3,5 @@ os:
   openLink: "$BROWSER {{link}}"
 gui:
   nerdFontsVersion: "3"
+git:
+  overrideGpg: true
