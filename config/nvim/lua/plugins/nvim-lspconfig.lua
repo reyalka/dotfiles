@@ -24,7 +24,7 @@ return {
                 "html",
                 "jsonls",
                 "lua_ls",
-                "nil_ls",
+                -- "nil_ls",
                 "pyright",
                 "rust_analyzer",
                 "tailwindcss",
