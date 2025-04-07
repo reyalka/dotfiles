@@ -2,7 +2,7 @@
 return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
-        { "williamboman/mason.nvim" },
+        { "williamboman/mason.nvim", cmd = "Mason" },
         { "williamboman/mason-lspconfig.nvim" },
         { "neovim/nvim-lspconfig" },
         { "nvimdev/lspsaga.nvim" },
