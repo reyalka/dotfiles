@@ -52,7 +52,6 @@ abbr -a -- tr tree
 abbr -a -- vrc "nvim /home/reyalka/.config/fish/config.fish"
 abbr -a -- yx "yarn dlx"
 abbr -a -- zl zellij
-
 # aqua generate --interactive --global
 abbr -a -- aqg "aqua g -i -g"
 # aqua init --all --link
@@ -68,9 +67,22 @@ alias proot='cd $(git rev-parse --show-toplevel)'
 # functions
 function ide
     set -l session_name (string split "/" (pwd))[-1]
-    set -l sessions (string split "\n" (zellij list-sessions --short -no-formatting 2>/dev/null))
-    zellij --layout ide --session $session_name 2>/dev/null \
-        || zellij attach $session_name
+    set -l sessions (string split "\n" (zellij list-sessions --short --no-formatting 2>/dev/null))
+
+    if $argv[1] == mini
+        set -l mini_session_name "$session_name-mini"
+        if contains $mini_session_name $sessions
+            zellij attach $mini_session_name
+        else
+            zellij --new-session-with-layout mini --session $mini_session_name
+        end
+    else
+        if contains $session_name $sessions
+            zellij attach $session_name
+        else
+            zellij --new-session-with-layout ide --session $session_name
+        end
+    end
 end
 
 function rmcd
