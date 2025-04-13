@@ -9,7 +9,7 @@ starship init fish | source
 set -g fish_prompt_pwd_dir_length 10
 
 # global variables
-set -Ux EDITOR /bin/nvim
+set -Ux EDITOR (which nvim)
 set -Ux BUN_INSTALL "$HOME/.bun"
 set -Ux GOPATH $HOME/.go
 set -Ux AQUA_GLOBAL_CONFIG ~/.config/aqua/aqua.yaml
@@ -69,19 +69,22 @@ function ide
     set -l session_name (string split "/" (pwd))[-1]
     set -l sessions (string split "\n" (zellij list-sessions --short --no-formatting 2>/dev/null))
 
-    if $argv[1] == mini
-        set -l mini_session_name "$session_name-mini"
-        if contains $mini_session_name $sessions
-            zellij attach $mini_session_name
-        else
-            zellij --new-session-with-layout mini --session $mini_session_name
-        end
-    else
-        if contains $session_name $sessions
-            zellij attach $session_name
-        else
-            zellij --new-session-with-layout ide --session $session_name
-        end
+    switch $argv[1]
+        case mini
+            set -l mini_session_name "$session_name-mini"
+            if contains $mini_session_name $sessions
+                zellij attach $mini_session_name
+            else
+                zellij --new-session-with-layout mini --session $mini_session_name
+            end
+
+        case "*"
+            if contains $session_name $sessions
+                zellij attach $session_name
+            else
+                zellij --new-session-with-layout ide --session $session_name
+            end
+
     end
 end
 
