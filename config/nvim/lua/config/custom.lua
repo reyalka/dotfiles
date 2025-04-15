@@ -22,3 +22,13 @@ vim.keymap.set("n", "gf", function()
         vim.cmd("normal! gf")
     end
 end)
+
+if vim.fn.system("uname -a | grep microsoft") ~= "" then
+    vim.api.nvim_create_augroup("myYank", { clear = true })
+
+    vim.api.nvim_create_autocmd("TextYankPost", {
+        group = "myYank",
+        pattern = "*",
+        callback = function() vim.fn.system("iconv -t sjis | clip.exe", vim.fn.getreg("+")) end,
+    })
+end
