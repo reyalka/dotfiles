@@ -2,5 +2,5 @@
 return {
     "windwp/nvim-ts-autotag",
     event = "BufRead",
-    opts = {},
+    config = function() require("nvim-ts-autotag").setup({}) end,
 }
