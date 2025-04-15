@@ -111,10 +111,10 @@ return {
                 lspconfig.tailwindcss.setup({
                     filetypes = {
                         "astro",
-                        "javascript",
                         "javascriptreact",
-                        "typescript",
                         "typescriptreact",
+                        "svelte",
+                        "vue",
                     },
                 })
             end,
