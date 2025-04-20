@@ -16,7 +16,6 @@ return {
             ensure_installed = {
                 "astro",
                 "bashls",
-                "markuplint",
                 "biome",
                 "cssls",
                 "denols",
