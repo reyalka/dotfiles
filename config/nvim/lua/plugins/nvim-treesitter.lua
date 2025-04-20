@@ -3,6 +3,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = "LspAttach",
+    dependencies = {
+        "RRethy/nvim-treesitter-endwise",
+    },
     config = function()
         local configs = require("nvim-treesitter.configs")
         configs.setup({
