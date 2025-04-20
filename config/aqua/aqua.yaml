@@ -46,3 +46,4 @@ packages:
   - name: casey/just@1.40.0
   - name: hashicorp/terraform@v1.11.2
   - name: rhysd/vim-startuptime@v1.3.2
+  - name: mikefarah/yq@v4.45.1
