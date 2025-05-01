@@ -47,3 +47,5 @@ packages:
   - name: hashicorp/terraform@v1.11.2
   - name: rhysd/vim-startuptime@v1.3.2
   - name: mikefarah/yq@v4.45.1
+  - name: tamasfe/taplo@0.9.3
+  - name: apple/pkl@0.28.2
