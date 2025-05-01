@@ -14,6 +14,7 @@ format:
     stylua ./ -f ./stylua.toml
     fish_indent -w ./**/*.fish
     yamlfmt ./
+    just --fmt --unstable
 
 alias fmt := format
 

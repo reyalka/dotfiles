@@ -1,5 +1,5 @@
 pre-commit:
-  parallel: true
+  piped: true
   commands:
     stylua:
       glob: "*.lua"
@@ -13,3 +13,19 @@ pre-commit:
     just-fmt:
       glob: "justfile"
       run: just --fmt --unstable
+    check_diff:
+      run: |
+        # 作業ツリーの変更を一時退避（ステージされたものは保持）
+        git stash push --keep-index --quiet --include-untracked || true
+
+        # 差分チェック（ステージされたものと比較）
+        git diff --exit-code --quiet
+        RESULT=$?
+
+        # 退避していた作業ツリーを戻す
+        git stash pop --quiet || true
+
+        # 差分があったらコミットを中断
+        if [ $RESULT -ne 0 ]; then
+          echo "💡 フォーマットによる変更が検出されました。修正内容を確認し、再度ステージングしてください。" && exit 1
+        fi
