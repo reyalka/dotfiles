@@ -38,10 +38,11 @@ abbr -a -- g git
 abbr -a -- lg lazygit
 abbr -a -- mr mkdir
 abbr -a -- mt mate-terminal
-abbr -a -- nivm nvim
 abbr -a -- pid "pnpm i --save-exact --save-dev"
+abbr -a -- n nvim
 abbr -a -- nv nvim
 abbr -a -- nvi nvim
+abbr -a -- nivm nvim
 abbr -a -- nvim-startuptime "vim-startuptime --vimpath nvim"
 abbr -a -- p pnpm
 abbr -a -- px "pnpm dlx"
