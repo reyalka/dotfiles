@@ -2,7 +2,8 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = "LspAttach",
+    event = { "LspAttach", "BufRead" },
+    cmd = { "TSUpdate", "TSInstall", "TSUninstall" },
     dependencies = {
         "RRethy/nvim-treesitter-endwise",
     },
