@@ -1,8 +1,29 @@
+local servers = {
+    "astro",
+    "bashls",
+    "biome",
+    "cssls",
+    "denols",
+    "emmet_language_server",
+    "gopls",
+    "html",
+    "jsonls",
+    "lua_ls",
+    -- "nil_ls",
+    "pyright",
+    "rust_analyzer",
+    "tailwindcss",
+    "tsserver",
+}
 ---@class LazySpec
 return {
-    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
     dependencies = {
-        { "williamboman/mason.nvim", cmd = "Mason" },
+        {
+            "williamboman/mason.nvim",
+            cmd = "Mason",
+            opts = servers,
+        },
         { "williamboman/mason-lspconfig.nvim" },
         { "neovim/nvim-lspconfig" },
         { "nvimdev/lspsaga.nvim" },
@@ -10,146 +31,86 @@ return {
     event = { "BufRead", "BufNewFile" },
     config = function()
         local lspconfig = require("lspconfig")
-        require("mason").setup({})
         require("lspsaga").setup({})
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "astro",
-                "bashls",
-                "biome",
-                "cssls",
-                "denols",
-                "emmet_language_server",
-                "gopls",
-                "html",
-                "jsonls",
-                "lua_ls",
-                -- "nil_ls",
-                "pyright",
-                "rust_analyzer",
-                "tailwindcss",
-                "ts_ls",
-            },
+
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+        -- capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+        vim.lsp.config("*", {
+            capabilities = capabilities,
         })
-
-        ---@param names string[]
-        ---@return string[]
-        local function get_plugin_paths(names)
-            local plugins = require("lazy.core.config").plugins
-            local paths = {}
-            for _, name in ipairs(names) do
-                if plugins[name] then
-                    table.insert(paths, plugins[name].dir .. "/lua")
-                else
-                    vim.notify("Invalid plugin name: " .. name)
-                end
-            end
-            return paths
-        end
-
-        ---@param plugins string[]
-        ---@return string[]
-        local function library(plugins)
-            local paths = get_plugin_paths(plugins)
-            table.insert(paths, vim.fn.stdpath("config") .. "/lua")
-            table.insert(paths, vim.env.VIMRUNTIME .. "/lua")
-            table.insert(paths, "${3rd}/luv/library")
-            table.insert(paths, "${3rd}/busted/library")
-            table.insert(paths, "${3rd}/luassert/library")
-            return paths
-        end
-
-        local function is_node_dir() return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd()) end
-
-        require("mason-lspconfig").setup_handlers({
-            function(server_name)
-                local capabilities = require("cmp_nvim_lsp").default_capabilities()
-                capabilities.textDocument.completion.completionItem.snippetSupport = true
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
-            ["lua_ls"] = function()
-                lspconfig.lua_ls.setup({
-                    settings = {
-                        Lua = {
-                            runtime = {
-                                version = "LuaJIT",
-                                pathStrict = true,
-                                path = { "?.lua", "?/init.lua" },
-                            },
-                            workspace = {
-                                library = library({
-                                    "lazy.nvim",
-                                    -- "nvim-cmp",
-                                    -- "nvim-insx",
-                                }),
-                                checkThirdParty = "Disable",
-                            },
-                        },
-                    },
-                })
-            end,
-            ["ts_ls"] = function()
-                lspconfig.ts_ls.setup({
-                    on_attach = function(client)
-                        print(is_node_dir())
-                        if not is_node_dir() then client.stop(true) end
-                    end,
-                })
-            end,
-            ["denols"] = function()
-                lspconfig.denols.setup({
-                    on_attach = function(client)
-                        print(is_node_dir())
-                        if is_node_dir() then client.stop(true) end
-                    end,
-                })
-            end,
-            ["tailwindcss"] = function()
-                lspconfig.tailwindcss.setup({
-                    filetypes = {
-                        "astro",
-                        "javascriptreact",
-                        "typescriptreact",
-                        "svelte",
-                        "vue",
-                    },
-                })
-            end,
-            ["emmet_language_server"] = function()
-                lspconfig.emmet_language_server.setup({
-                    filetypes = {
-                        "astro",
-                        "css",
-                        "html",
-                        "javascript",
-                        "javascriptreact",
-                        "scss",
-                        "typescript",
-                        "typescriptreact",
-                    },
-                })
-            end,
-        })
-
-        vim.api.nvim_create_autocmd("LspAttach", {
-            callback = function(_)
-                local set = vim.keymap.set
-                set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-                set("n", "gF", "<cmd>Lspsaga finder<CR>")
-                set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
-                set("n", "<F2>", "<cmd>Lspsaga rename<CR>")
-                set("n", "ga", "<cmd>Lspsaga code_action<CR>")
-                set("n", "g@", "<cmd>Lspsaga show_line_diagnostics<CR>")
-                set("n", "<leader>a", "<cmd>Lspsaga outline<CR>")
-                set("n", "gD", vim.lsp.buf.definition)
-                set("n", "gI", vim.lsp.buf.implementation)
-                set("n", "gt", vim.lsp.buf.type_definition)
-                set("n", "g]", vim.diagnostic.goto_next)
-                set("n", "g[", vim.diagnostic.goto_prev)
-            end,
-        })
+        vim.lsp.enable(servers)
+        -- local function is_node_dir()
+        --     return lspconfig.util.root_pattern("package.json")(vim.fn.getcwd())
+        -- end
+        --
+        -- local server_configs = {
+        --     lua_ls = {
+        --         settings = {
+        --             Lua = {
+        --                 runtime = {
+        --                     version = "LuaJIT",
+        --                 },
+        --                 diagnostics = {
+        --                     globals = { "vim" },
+        --                 },
+        --                 workspace = {
+        --                     library = vim.api.nvim_get_runtime_file("", true),
+        --                     checkThirdParty = false,
+        --                 },
+        --             },
+        --         },
+        --     },
+        --     tsserver = {
+        --         on_attach = function(client, bufnr)
+        --             on_attach(client, bufnr)
+        --             if not is_node_dir() then
+        --                 client.stop(true)
+        --             end
+        --         end,
+        --     },
+        --     denols = {
+        --         on_attach = function(client, bufnr)
+        --             on_attach(client, bufnr)
+        --             if is_node_dir() then
+        --                 client.stop(true)
+        --             end
+        --         end,
+        --     },
+        --     tailwindcss = {
+        --         filetypes = {
+        --             "astro",
+        --             "javascriptreact",
+        --             "typescriptreact",
+        --             "svelte",
+        --             "vue",
+        --         },
+        --     },
+        --     emmet_language_server = {
+        --         filetypes = {
+        --             "astro",
+        --             "css",
+        --             "html",
+        --             "javascript",
+        --             "javascriptreact",
+        --             "scss",
+        --             "typescript",
+        --             "typescriptreact",
+        --         },
+        --     },
+        -- }
+        --
+        -- for _, server_name in ipairs(servers) do
+        --     local config = {
+        --         on_attach = on_attach,
+        --         capabilities = capabilities,
+        --     }
+        --     if server_configs[server_name] then
+        --         config = vim.tbl_deep_extend("force", config, server_configs[server_name])
+        --     end
+        --     lspconfig[server_name].setup(config)
+        -- end
 
         vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
             virtual_text = {
