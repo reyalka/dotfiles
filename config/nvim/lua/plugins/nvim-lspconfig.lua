@@ -45,22 +45,20 @@ return {
             set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { buffer = bufnr, desc = "Previous Diagnostic" })
             set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { buffer = bufnr, desc = "Next Diagnostic" })
 
-            if client.server_capabilities.inlayHintProvider then
-                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-            end
+            if client.server_capabilities.inlayHintProvider then vim.lsp.inlay_hint.enable(true, { bufnr = bufnr }) end
         end
 
         vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
-                    runtime = { version = "LuaJIT", },
-                    diagnostics = { globals = { "vim" }, },
+                    runtime = { version = "LuaJIT" },
+                    diagnostics = { globals = { "vim" } },
                     workspace = {
                         library = vim.api.nvim_get_runtime_file("", true),
                         checkThirdParty = false,
                     },
                 },
-            }
+            },
         })
 
         vim.lsp.config("*", {
