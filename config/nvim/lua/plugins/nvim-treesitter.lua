@@ -2,40 +2,36 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    event = { "LspAttach", "BufRead" },
-    cmd = { "TSUpdate", "TSInstall", "TSUninstall" },
-    dependencies = {
-        "RRethy/nvim-treesitter-endwise",
+    lazy = false,
+    branch = "main",
+    -- dependencies = {
+    --     "RRethy/nvim-treesitter-endwise",
+    -- },
+    opts = {
+        ensure_installed = {
+            "astro",
+            "css",
+            "fish",
+            "html",
+            "javascript",
+            "json",
+            "just",
+            "kdl",
+            "lua",
+            "markdown",
+            "markdown_inline",
+            "scss",
+            "svelte",
+            "tsx",
+            "typescript",
+            "vim",
+            "vimdoc",
+        },
+        highlight = {
+            enable = true,
+        },
+        indent = {
+            enable = true,
+        },
     },
-    config = function()
-        local configs = require("nvim-treesitter.configs")
-        configs.setup({
-            ensure_installed = {
-                "astro",
-                "css",
-                "fish",
-                "html",
-                "javascript",
-                "json",
-                "just",
-                "kdl",
-                "lua",
-                "markdown",
-                "markdown_inline",
-                "scss",
-                "svelte",
-                "tsx",
-                "typescript",
-                "vim",
-                "vimdoc",
-            },
-            sync_install = false,
-            highlight = { enable = true },
-            indent = { enable = true },
-            autotag = { enable = true },
-        })
-
-        require("nvim-treesitter.parsers").get_parser_configs().tsx.filetype_to_parsername =
-            { "javascript", "typescript.tsx" }
-    end,
 }
