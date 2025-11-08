@@ -10,6 +10,15 @@ return {
         { "onsails/lspkind.nvim" },
         { "saadparwaiz1/cmp_luasnip" },
         { "L3MON4D3/LuaSnip" },
+        {
+            "folke/lazydev.nvim",
+            ft = "lua",
+            opts = {
+                library = {
+                    { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                },
+            },
+        },
     },
     config = function()
         local cmp = require("cmp")
@@ -33,6 +42,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "path" },
+                { name = "lazydev", group_index = 0 },
             }),
             formatting = {
                 format = lspkind.cmp_format({
