@@ -26,6 +26,7 @@ return {
                 vim.keymap.set("n", "<space>w", "<nop>", { buffer = 0 })
                 -- disable copilot when oil is open
                 vim.cmd("Copilot disable")
+                vim.opt.relativenumber = false
             end,
             group = OilGroup,
         })
