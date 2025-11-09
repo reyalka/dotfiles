@@ -9,7 +9,11 @@ fish_add_path $BUN_INSTALL/bin
 fish_add_path $HOME/.moon/bin
 fish_add_path $VOLTA_HOME/bin
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# brew
+if grep -q "Ubuntu" /etc/os-release
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+end
+
 # pnpm
 set -gx PNPM_HOME "/home/reyalka/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
@@ -30,8 +34,6 @@ export GPG_TTY=$(tty)
 # path
 # starship setting
 starship init fish | source
-
-# brew settings
 
 # abbr
 abbr -a -- cl clear
