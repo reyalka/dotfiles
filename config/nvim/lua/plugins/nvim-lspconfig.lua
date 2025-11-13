@@ -15,6 +15,29 @@ local servers = {
     "tailwindcss",
     "ts_ls",
 }
+local filetypes = {
+    "astro",
+    "bash",
+    "css",
+    "go",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "lua",
+    "markdown",
+    "nix",
+    "python",
+    "rust",
+    "sass",
+    "scss",
+    "sh",
+    "svelte",
+    "typescript",
+    "typescriptreact",
+    "xml",
+}
 ---@class LazySpec
 return {
     "neovim/nvim-lspconfig",
@@ -28,7 +51,7 @@ return {
         { "neovim/nvim-lspconfig" },
         { "nvimdev/lspsaga.nvim" },
     },
-    event = { "BufRead", "BufNewFile" },
+    ft = filetypes,
     config = function()
         require("lspsaga").setup({})
 
@@ -40,6 +63,7 @@ return {
             set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { buffer = bufnr, desc = "Go to Definition" })
             set("n", "gr", "<cmd>Lspsaga finder<CR>", { buffer = bufnr, desc = "References" })
             set("n", "ga", "<cmd>Lspsaga code_action<CR>", { buffer = bufnr, desc = "Code Action" })
+            set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", { buffer = bufnr, desc = "Show Line Diagnostics" })
             set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = bufnr, desc = "Hover Documentation" })
             set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { buffer = bufnr, desc = "Rename" })
             set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { buffer = bufnr, desc = "Previous Diagnostic" })
@@ -47,19 +71,6 @@ return {
 
             if client.server_capabilities.inlayHintProvider then vim.lsp.inlay_hint.enable(true, { bufnr = bufnr }) end
         end
-
-        -- vim.lsp.config("lua_ls", {
-        --     settings = {
-        --         Lua = {
-        --             runtime = { version = "LuaJIT" },
-        --             diagnostics = { globals = { "vim" } },
-        --             workspace = {
-        --                 library = vim.api.nvim_get_runtime_file("", true),
-        --                 checkThirdParty = false,
-        --             },
-        --         },
-        --     },
-        -- })
 
         vim.lsp.config("*", {
             capabilities = capabilities,
@@ -71,7 +82,7 @@ return {
             severity_sort = true,
             float = {
                 title = "Diagnostics",
-                border = "solid",
+                border = "double",
                 format = function(diagnostic)
                     if diagnostic.code then
                         return string.format("%s [%s](%s)", diagnostic.message, diagnostic.source, diagnostic.code)
