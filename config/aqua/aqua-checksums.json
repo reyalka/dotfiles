@@ -1,0 +1,89 @@
+{
+  "checksums": [
+    {
+      "id": "github_release/github.com/ClementTsang/bottom/0.10.2/bottom_x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "520C9E3F1C2E9F076693B59277B680806670AF8FB5BEA2A9FEECC6176DC6A151",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/XAMPPRocky/tokei/v12.1.2/tokei-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "331E77046935D655DCE8D97EBB943FCC7E9684586DADF3D197F3DF5E760CD31B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/bootandy/dust/v1.1.1/dust-v1.1.1-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "4D0E7F3E39CE85E98CC69260AB6F40E460A455CD8575AF1BA70D14A2940AE553",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/cli/cli/v2.64.0/gh_2.64.0_linux_amd64.tar.gz",
+      "checksum": "0E44A4C43014BD513550EC190B7C33F5F8B63D162927A1F6445EF38EA25CD2FA",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/climech/grit/v0.3.0/grit_v0.3.0_linux_amd64.tar.gz",
+      "checksum": "1AB30F2A54433533BC31E0ADB350D36B6519A4A0DEF670C8520EAF9500011144",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/evilmartians/lefthook/v1.11.3/lefthook_1.11.3_Linux_x86_64.gz",
+      "checksum": "0BB5FEFA5183190F681ACB1C7F5AD2243E002DDA0EF1F3D79C5AC06F4A0A8A91",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/google/yamlfmt/v0.16.0/yamlfmt_0.16.0_Linux_x86_64.tar.gz",
+      "checksum": "7819FA7C7E994D239009D30CBD58897149D7E7DD5847AEDF7ABD19C332298033",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/junegunn/fzf/v0.57.0/fzf-0.57.0-linux_amd64.tar.gz",
+      "checksum": "A3C087A5F40E8BB4D9BFB26FAFFA094643DF111A469646BEF53154A54AF9FF92",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mvdan/sh/v3.10.0/shfmt_v3.10.0_linux_amd64",
+      "checksum": "1F57A384D59542F8FAC5F503DA1F3EA44242F46DFF969569E80B524D64B71DBC",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/nektos/act/v0.2.71/act_Linux_x86_64.tar.gz",
+      "checksum": "F00CD2CA6310B73831042D01E3C2F00CB60C28620588E981BF551A0ACA659DC5",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/svenstaro/genact/v1.4.2/genact-1.4.2-x86_64-unknown-linux-musl",
+      "checksum": "0E891A03FDAB5B69CD17A09425D0D820875BB5231C63D0212C5A50690C1B1273",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/typst/typst/v0.12.0/typst-x86_64-unknown-linux-musl.tar.xz",
+      "checksum": "605130A770EBD59A4A579673079CB913A13E75985231657A71D6239A57539EC3",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/typstyle-rs/typstyle/v0.12.14/typstyle-x86_64-unknown-linux-musl",
+      "checksum": "14B65B88E47A284912E5326C21FDA8C03A935D3494358FE77C86739CC8D101B8",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ynqa/jnv/v0.4.2/jnv-x86_64-unknown-linux-musl.tar.xz",
+      "checksum": "9B6B808DE71E8C7879876B917FF080B4EBF2A07ABC6BE2A8AAEB506F7089AA94",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ynqa/jnv/v0.5.0/jnv-x86_64-unknown-linux-musl.tar.xz",
+      "checksum": "2EED19495DC0002919D1EE30A2A4FF3E39912C9EE3D4AD2F748ECD28E3171735",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/dev.yorhel.nl/download/ncdu-2.5-linux-x86_64.tar.gz",
+      "checksum": "8DC33F5E9C0E22A25AF361173F841C7EE2D7C75601064E979A87FEF82338B277",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "http/releases.hashicorp.com/terraform/1.11.2/terraform_1.11.2_linux_amd64.zip",
+      "checksum": "B94F7C5080196081EA5180E8512EDD3C2037F28445CE3562CFB0ADFD0AAB64CA",
+      "algorithm": "sha256"
+    }
+  ]
+}

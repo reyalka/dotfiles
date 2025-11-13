@@ -3,7 +3,7 @@
 checksum:
   enabled: true
   supported_envs:
-  - all
+    - all
 registries:
   - type: standard
     ref: v4.434.0 # renovate: depName=aquaproj/aqua-registry
