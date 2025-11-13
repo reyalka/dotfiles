@@ -10,7 +10,7 @@ fish_add_path $HOME/.moon/bin
 fish_add_path $VOLTA_HOME/bin
 
 # brew
-if grep -q "Ubuntu" /etc/os-release
+if grep -q Ubuntu /etc/os-release
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 end
 
