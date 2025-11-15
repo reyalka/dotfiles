@@ -13,6 +13,7 @@ local servers = {
     "pyright",
     "rust_analyzer",
     "tailwindcss",
+    "tombi",
     "ts_ls",
 }
 local filetypes = {
@@ -34,6 +35,7 @@ local filetypes = {
     "scss",
     "sh",
     "svelte",
+    "toml",
     "typescript",
     "typescriptreact",
     "xml",
