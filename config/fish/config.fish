@@ -144,6 +144,11 @@ function fish_command_not_found
     echo "Command not found: $argv[1]"
 end
 
+function note
+    $argv && curl -d "Command completed: \"$argv\"" "https://ntfy.sh/$NTFY_COMPLETED"
+end
+
+
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
