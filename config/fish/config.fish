@@ -67,7 +67,7 @@ abbr -a -- aqi "aqua i -a -l"
 alias .. __bd
 alias . dot
 alias ll "eza -alT --icons -L 1"
-alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian'"
+alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian|target|'"
 alias proot='cd $(git rev-parse --show-toplevel)'
 
 # functions
