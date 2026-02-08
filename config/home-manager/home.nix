@@ -17,10 +17,14 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages = with pkgs;[
+	bat
+	fd
+	fish
+	fzf
+	neovim
+	nodejs
+	ripgrep
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -50,6 +54,34 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+    
+  programs = {
+      direnv = {
+          enable = true;
+          nix-direnv.enable = true;
+      };
+      fzf = {
+          enable = true;
+      };
+      fish = {
+          enable = true; 
+          interactiveShellInit = builtins.readFile ./config.fish;
+          plugins = [
+              {
+                  name = "z";
+                  src = pkgs.fishPlugins.z.src;
+              }
+              {
+                  name = "autopair";
+                  src = pkgs.fishPlugins.autopair.src;
+              }
+              {
+                  name = "pure";
+                  src = pkgs.fishPlugins.pure.src;
+              }
+          ];
+      };
+  };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -68,7 +100,7 @@
   #  /etc/profiles/per-user/reyalka/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   # Let Home Manager install and manage itself.

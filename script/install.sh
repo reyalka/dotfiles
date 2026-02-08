@@ -11,4 +11,5 @@ ln -svf ~/dotfiles/config/zellij/ ~/.config/
 ln -svf ~/dotfiles/config/lazygit/ ~/.config/
 ln -svf ~/dotfiles/config/starship.toml ~/.config/
 ln -svf ~/dotfiles/config/.zshrc ~/
+ln -svf ~/dotfiles/config/home-manager/ ~/.config/
 
