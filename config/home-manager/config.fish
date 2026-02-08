@@ -37,15 +37,15 @@ set -Ux GOPATH $HOME/.go
 set -Ux AQUA_GLOBAL_CONFIG ~/.config/aqua/aqua.yaml
 set -Ux VOLTA_HOME "$HOME/.volta"
 
-set -g pure_color_danger f38ba8 # Red (Error/Exit status)          (#F38BA8)
+set -g pure_color_danger f38ba8 # Red (Error/Exit status)        (#F38BA8)
 set -g pure_color_dark 45475a # Surface1 (Dark/Black equivalent) (#45475A)
 set -g pure_color_info 89dceb # Sky (Git unpulled/unpushed)      (#89DCEB)
-set -g pure_color_light cdd6f4 # Text (Light/White equivalent)    (#CDD6F4)
+set -g pure_color_light cdd6f4 # Text (Light/White equivalent)   (#CDD6F4)
 set -g pure_color_mute 6c7086 # Overlay0 (Grayed out info)       (#6C7086)
-set -g pure_color_normal cdd6f4 # Text (Default status)            (#CDD6F4)
-set -g pure_color_primary 89b4fa # Blue (Directory)                 (#89B4FA)
-set -g pure_color_success a6e3a1 # Green (Prompt symbol)            (#A6E3A1)
-set -g pure_color_warning f9e2af # Yellow (Execution time)          (#F9E2AF)
+set -g pure_color_normal cdd6f4 # Text (Default status)          (#CDD6F4)
+set -g pure_color_primary 89b4fa # Blue (Directory)              (#89B4FA)
+set -g pure_color_success a6e3a1 # Green (Prompt symbol)         (#A6E3A1)
+set -g pure_color_warning f9e2af # Yellow (Execution time)       (#F9E2AF)
 export GPG_TTY=$(tty)
 
 # path
