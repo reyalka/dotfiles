@@ -2,6 +2,7 @@ local servers = {
     "astro",
     "bashls",
     "biome",
+    "clangd",
     "cssls",
     "denols",
     "emmet_language_server",
@@ -12,6 +13,7 @@ local servers = {
     "nil_ls",
     "pyright",
     "rust_analyzer",
+    "svelte",
     "tailwindcss",
     "tombi",
     "ts_ls",
@@ -19,6 +21,7 @@ local servers = {
 local filetypes = {
     "astro",
     "bash",
+    "c",
     "css",
     "go",
     "html",
@@ -34,6 +37,7 @@ local filetypes = {
     "sass",
     "scss",
     "sh",
+    "svelte",
     "svelte",
     "toml",
     "typescript",
@@ -56,21 +60,22 @@ return {
     ft = filetypes,
     config = function()
         require("lspsaga").setup({})
+        local set = vim.keymap.set
+        set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { desc = "Go to Definition" })
+        set("n", "gr", "<cmd>Lspsaga finder<CR>", { desc = "References" })
+        set("n", "ga", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
+        set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", { desc = "Show Line Diagnostics" })
+        set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Documentation" })
+        set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "Rename" })
+        set("n", "<F2>", "<cmd>Lspsaga rename<CR>", { desc = "Rename" })
+        set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Previous Diagnostic" })
+        set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Next Diagnostic" })
+        set("n", "g@", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { desc = "Show Cursor Diagnostics" })
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
         local function on_attach(client, bufnr)
-            local set = vim.keymap.set
-            set("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { buffer = bufnr, desc = "Go to Definition" })
-            set("n", "gr", "<cmd>Lspsaga finder<CR>", { buffer = bufnr, desc = "References" })
-            set("n", "ga", "<cmd>Lspsaga code_action<CR>", { buffer = bufnr, desc = "Code Action" })
-            set("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", { buffer = bufnr, desc = "Show Line Diagnostics" })
-            set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { buffer = bufnr, desc = "Hover Documentation" })
-            set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { buffer = bufnr, desc = "Rename" })
-            set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { buffer = bufnr, desc = "Previous Diagnostic" })
-            set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { buffer = bufnr, desc = "Next Diagnostic" })
-
             if client.server_capabilities.inlayHintProvider then vim.lsp.inlay_hint.enable(true, { bufnr = bufnr }) end
         end
 
@@ -78,7 +83,36 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
         })
-        vim.lsp.enable(servers)
+
+        local copied_servers = vim.tbl_extend("force", {}, servers)
+        local enabled_servers = vim.tbl_filter(
+            function(server) return server ~= "denols" or server ~= "ts_ls" end,
+            copied_servers
+        )
+        vim.lsp.enable(enabled_servers)
+
+        vim.api.nvim_create_autocmd("FileType", {
+            group = vim.api.nvim_create_augroup("LspStartJS", { clear = true }),
+            callback = function(ctx)
+                if
+                    not vim.tbl_contains({
+                        "javascript",
+                        "javascriptreact",
+                        "javascript.jsx",
+                        "typescript",
+                        "typescriptreact",
+                    }, ctx.match)
+                then
+                    return
+                end
+
+                if vim.fn.findfile("package.json", ".;") ~= "" then
+                    vim.lsp.enable("ts_ls")
+                else
+                    vim.lsp.enable("denols")
+                end
+            end,
+        })
 
         vim.diagnostic.config({
             severity_sort = true,

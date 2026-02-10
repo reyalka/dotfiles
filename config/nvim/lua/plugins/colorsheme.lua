@@ -5,6 +5,9 @@ local colorschemes = {
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("tokyonight") end,
+        opts = {
+            transparent = true,
+        },
     },
     ayu = {
         "ayu-theme/ayu-vim",
@@ -25,9 +28,17 @@ local colorschemes = {
         "BrunoCiccarino/nekonight",
         lazy = false,
         priority = 1000,
-        opts = {},
-        config = function() vim.cmd.colorscheme("nekonight-moon") end,
+        config = function()
+            require("nekonight").setup({
+                transparent = true,
+                styles = {
+                    floats = "transparent",
+                    sidebars = "transparent",
+                },
+            })
+            vim.cmd.colorscheme("nekonight-moon")
+        end,
     },
 }
 
-return colorschemes.tokyonight
+return colorschemes.nekonight

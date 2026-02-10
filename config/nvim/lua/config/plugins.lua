@@ -132,6 +132,7 @@ local plugins = {
                     "bashls",
                     "biome",
                     "cssls",
+                    "deno_ls",
                     "emmet_language_server",
                     "html",
                     "jsonls",
@@ -169,10 +170,11 @@ local plugins = {
                 return paths
             end
 
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            capabilities.textDocument.completion.completionItem.snippetSupport = true
+
             require("mason-lspconfig").setup_handlers({
                 function(server_name)
-                    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-                    capabilities.textDocument.completion.completionItem.snippetSupport = true
                     lspconfig[server_name].setup({
                         capabilities = capabilities,
                     })
@@ -196,6 +198,7 @@ local plugins = {
                 end,
                 ["tsserver"] = function()
                     lspconfig.tsserver.setup({
+                        capabilities = capabilities,
                         on_attach = function(client) client.resolved_capabilities.document_formatting = false end,
                     })
                 end,
@@ -228,7 +231,7 @@ local plugins = {
             vim.api.nvim_create_autocmd("LspAttach", {
                 callback = function(_)
                     local set = vim.keymap.set
-                    set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+                    set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
                     set("n", "gF", "<cmd>Lspsaga finder<CR>")
                     set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
                     set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")

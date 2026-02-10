@@ -7,31 +7,12 @@ return {
     -- dependencies = {
     --     "RRethy/nvim-treesitter-endwise",
     -- },
-    opts = {
-        ensure_installed = {
-            "astro",
-            "css",
-            "fish",
-            "html",
-            "javascript",
-            "json",
-            "just",
-            "kdl",
-            "lua",
-            "markdown",
-            "markdown_inline",
-            "scss",
-            "svelte",
-            "tsx",
-            "typescript",
-            "vim",
-            "vimdoc",
-        },
-        highlight = {
-            enable = true,
-        },
-        indent = {
-            enable = true,
-        },
-    },
+    config = function()
+        require("nvim-treesitter").setup({})
+
+        vim.api.nvim_create_autocmd("FileType", {
+            group = vim.api.nvim_create_augroup("vim-treesitter-start", {}),
+            callback = function(ctx) pcall(vim.treesitter.start) end,
+        })
+    end,
 }
