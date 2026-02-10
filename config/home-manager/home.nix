@@ -24,7 +24,9 @@
 	fzf
 	neovim
 	nodejs
+    lazygit
 	ripgrep
+    python3
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -80,6 +82,23 @@
                   src = pkgs.fishPlugins.pure.src;
               }
           ];
+      };
+      uv = {
+          enable = true;
+      };
+      git = {
+          enable = true;
+          userName = "reyalka";
+          userEmail = "140703515+reyalka@users.noreply.github.com";
+          extraConfig = {
+              commit.gpgsign = true;
+              push.autoSetupRemote = true;
+              init.defaultBranch = "main";
+              pull.rebase = true;
+          };
+          delta = {
+              enable = true;
+          };
       };
   };
 
