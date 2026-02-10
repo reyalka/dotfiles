@@ -1,4 +1,5 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
+command_timeout = 100
 
 [container]
 disabled = true
@@ -8,3 +9,7 @@ truncation_length = 1000
 
 [golang]
 symbol = " "
+
+[git_status]
+conflicted = "🔀 "
+format = "[$conflicted]($style)"
