@@ -16,10 +16,12 @@ fish_add_path $BUN_INSTALL/bin
 fish_add_path $HOME/.moon/bin
 fish_add_path $VOLTA_HOME/bin
 
-# brew
-if grep -q Ubuntu /etc/os-release
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-end
+source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+
+# # brew
+# if grep -q Ubuntu /etc/os-release
+#     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# end
 
 # pnpm
 set -gx PNPM_HOME "/home/reyalka/.local/share/pnpm"
@@ -79,12 +81,13 @@ abbr -a -- zl zellij
 abbr -a -- aqg "aqua g -i -g"
 # aqua init --all --link
 abbr -a -- aqi "aqua i -a -l"
+abbr -a -- oc "opencode"
 
 # alias
 alias .. __bd
 alias . dot
 alias ll "eza -alT --icons -L 1"
-alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian|target|'"
+alias dt "eza --icons -Ta -I 'node_modules|dist|.git|.next|.obsidian|target|.venv'"
 alias proot='cd $(git rev-parse --show-toplevel)'
 
 # functions
@@ -172,7 +175,7 @@ function toHex
     echo (math --base 16 $argv[1] | string sub -s 3)
 end
 
-# do nothin when command not found
+# do nothing when command not found
 function fish_command_not_found
     echo "Command not found: $argv[1]"
 end
