@@ -25,3 +25,7 @@ generate-completions:
 # sync config into ~/.config
 sync:
     bash ./script/install.sh
+
+# apply home-manager config
+apply:
+    home-manager switch -b backup
