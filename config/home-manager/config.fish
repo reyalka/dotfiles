@@ -15,6 +15,7 @@ fish_add_path $HOME/.local/bin
 fish_add_path $BUN_INSTALL/bin
 fish_add_path $HOME/.moon/bin
 fish_add_path $VOLTA_HOME/bin
+fish_add_path $HOME/.local/bin
 
 source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
 
