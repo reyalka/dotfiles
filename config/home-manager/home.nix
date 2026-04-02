@@ -31,8 +31,10 @@
     imagemagick
     jnv
     jq
+    jujutsu
     just
     lazygit
+    lazyjj
     ncdu
     scc
     tree
