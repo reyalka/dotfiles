@@ -35,8 +35,10 @@
     just
     lazygit
     lazyjj
+    litecli
     ncdu
     scc
+    terraform
     tree
     unzip
     yazi
